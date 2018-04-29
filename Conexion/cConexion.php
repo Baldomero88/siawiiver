@@ -29,7 +29,7 @@ class cConexion
    		 	return false;
 		}
 		else {
-			return true;
+			return $enlace;
 		}
 	}
 

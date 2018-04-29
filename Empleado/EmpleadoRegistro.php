@@ -13,8 +13,8 @@ $nHonorario = $_POST['nHonorario'];
 
 #se crea el objeto  oEmpleadoEntidad 
 $oEmpleadoEntidad = new cEmpleadoEntidad; 
-$dblink = new cConexion;
-$dblink->Conectar();
+$oConectar = new cConexion;
+$dbLink = $oConectar->Conectar();
 
 
 
@@ -27,7 +27,7 @@ $oEmpleadoEntidad->setNombreEmpleado($sNombreEmpleado);
 $oEmpleadoEntidad->setNombreEmpleado($sNombreEmpleado);
 $oEmpleadoEntidad->setNombreEmpleado($sNombreEmpleado);
 
-$oEmpleadoModelo = New cEmpleadoModelo($dblink, $oEmpleadoEntidad);
+$oEmpleadoModelo = New cEmpleadoModelo($dbLink, $oEmpleadoEntidad);
 $oEmpleadoModelo->RegistrarEmpleado();
 
  ?>
