@@ -23,9 +23,9 @@ $dbLink = $oConectar->Conectar();
 # el objeto llama al metodo para asignar parametro
 $oEmpleadoEntidad->setNombreEmpleado($sNombreEmpleado);
 $oEmpleadoEntidad->setDireccionEmpleado($sDireccionEmpleado);
-$oEmpleadoEntidad->setNombreEmpleado($sNombreEmpleado);
-$oEmpleadoEntidad->setNombreEmpleado($sNombreEmpleado);
-$oEmpleadoEntidad->setNombreEmpleado($sNombreEmpleado);
+$oEmpleadoEntidad->setTelefonoEmpleado($sTelefonoEmpleado);
+$oEmpleadoEntidad->setPuesto($sPuesto);
+$oEmpleadoEntidad->setHonorario($nHonorario);
 
 $oEmpleadoModelo = New cEmpleadoModelo($dbLink, $oEmpleadoEntidad);
 $oEmpleadoModelo->RegistrarEmpleado();
