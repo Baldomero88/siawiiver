@@ -1,3 +1,9 @@
+<?php 
+	require_once('cClienteController.php');
+	$oClienteController = new cClienteController;
+	$oPuntoAccesoCliente = $oClienteController->ObtenerPuntoAccesoCliente();
+	 
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +11,13 @@
 </head>
 <body>
 <form action="ClienteRegistro.php" method="post">
-	<input type="text" name="nId_PuntoAcceso" placeholder="nId_PuntoAcceso">
+	<select name="nId_PuntoAcceso">
+		<?php 
+		for ($i = 0; $i < count($oPuntoAccesoCliente); $i++) {
+			echo '<option value='.$oPuntoAccesoCliente[$i]['Id_PuntoAcceso'].'>'.$oPuntoAccesoCliente[$i]['NombrePuntoAcceso'].'</option>';
+		}
+		?>
+	</select>
 	<input type="text" name="sNombreCliente" placeholder="sNombreCliente">
 	<input type="text" name="sDireccionCliente" placeholder="sDireccionCliente">
 	<input type="text" name="sLocalidad" placeholder="sLocalidad">

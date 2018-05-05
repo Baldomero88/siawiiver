@@ -20,9 +20,6 @@ $oConectar = new cConexion;
 $dbLink = $oConectar->Conectar();
 
 
-
-
-
 # el objeto llama al metodo para asignar parametro
 $oClienteEntidad->setId_PuntoAcceso($nId_PuntoAcceso);
 $oClienteEntidad->setNombreCliente($sNombreCliente);

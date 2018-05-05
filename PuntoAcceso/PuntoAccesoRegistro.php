@@ -11,14 +11,6 @@ $sTelefonoPuntoAcceso = $_POST['sTelefonoPuntoAcceso'];
 $sDireccionMac = $_POST['sDireccionMac'];
 $sContraseñaWifi = $_POST['sContraseñaWifi'];
 
-echo $sNombrePuntoAcceso;
-echo $sUbicacion;
-echo $sNombreContacto;
-echo $sTelefonoPuntoAcceso;
-echo $sDireccionMac;
-echo $sContraseñaWifi;
-
-
 $oPuntoAccesoEntidad = new cPuntoAccesoEntidad; 
 $oConectar = new cConexion;
 $dbLink = $oConectar->Conectar();
@@ -33,6 +25,5 @@ $oPuntoAccesoEntidad->setContraseñaWifi($sContraseñaWifi);
 
 $oPuntoAccesoModelo = New cPuntoAccesoModelo($dbLink, $oPuntoAccesoEntidad);
 $oPuntoAccesoModelo->RegistrarPuntoAcceso();
-
 
  ?>
