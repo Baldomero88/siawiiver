@@ -12,7 +12,8 @@ $sLocalidad = $_POST['sLocalidad'];
 $sMunicipio = $_POST['sMunicipio'];
 $sTelefonoCliente = $_POST['sTelefonoCliente'];
 $sReferencia = $_POST['sReferencia'];
-$sContraseñaWifi = $_POST['sContraseñaWifi'];
+$sContrasenaWifi = $_POST['sContrasenaWifi'];
+
 
 #se crea el objeto  oClienteEntidad 
 $oClienteEntidad = new cClienteEntidad; 
@@ -28,7 +29,7 @@ $oClienteEntidad->setLocalidad($sLocalidad);
 $oClienteEntidad->setMunicipio($sMunicipio);
 $oClienteEntidad->setTelefonoCliente($sTelefonoCliente);
 $oClienteEntidad->setReferencia($sReferencia);
-$oClienteEntidad->setContraseñaWifi($sContraseñaWifi);
+$oClienteEntidad->setContrasenaWifi($sContrasenaWifi);
 
 $oClienteModelo = New cClienteModelo($dbLink, $oClienteEntidad);
 $oClienteModelo->RegistrarCliente();

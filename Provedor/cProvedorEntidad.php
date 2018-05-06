@@ -2,34 +2,34 @@
 
 class cProvedorEntidad{
 
-protected $_sNombreCompañia = null;
-protected $_sContactoCompañia = null;
-protected $_sDireccionCompañia = null;
+protected $_sNombreCompania = null;
+protected $_sContactoCompania = null;
+protected $_sDireccionCompania = null;
 protected $_sCiudad = null;
 protected $_nCodigoPostal = null;
 protected $_sPais = null;
-protected $_sTelefonoCompañia = null;
+protected $_sTelefonoCompania = null;
 protected $_sPaginaWeb = null;
 
-public function setNombreCompañia($sNombreCompañia){
-	$this->_sNombreCompañia = $sNombreCompañia;
+public function setNombreCompania($sNombreCompania){
+	$this->_sNombreCompania = $sNombreCompania;
 }
-public function getNombreCompañia(){
-	return $this->_sNombreCompañia;
-}
-
-public function setNombreContactoCompañia($sNombreContactoCompañia){
-	$this->_sNombreContactoCompañia = $sNombreContactoCompañia;
-}
-public function getNombreContactoCompañia(){
-	return $this->_sNombreContactoCompañia;
+public function getNombreCompania(){
+	return $this->_sNombreCompania;
 }
 
-public function setDireccionCompañia($sDireccionCompañia){
-	$this->_sDireccionCompañia = $sDireccionCompañia;
+public function setNombreContactoCompania($sNombreContactoCompania){
+	$this->_sNombreContactoCompania = $sNombreContactoCompania;
 }
-public function getDireccionCompañia(){
-	return $this->_sDireccionCompañia;
+public function getNombreContactoCompania(){
+	return $this->_sNombreContactoCompania;
+}
+
+public function setDireccionCompania($sDireccionCompania){
+	$this->_sDireccionCompania = $sDireccionCompania;
+}
+public function getDireccionCompania(){
+	return $this->_sDireccionCompania;
 }
 
 public function setCiudad($sCiudad){
@@ -53,11 +53,11 @@ public function getPais(){
 	return $this->_sPais;
 }
 
-public function setTelefonoCompañia($sTelefonoCompañia){
-	$this->_sTelefonoCompañia = $sTelefonoCompañia;
+public function setTelefonoCompania($sTelefonoCompania){
+	$this->_sTelefonoCompania = $sTelefonoCompania;
 }
-public function getTelefonoCompañia(){
-	return $this->_sTelefonoCompañia;
+public function getTelefonoCompania(){
+	return $this->_sTelefonoCompania;
 }
 
 public function setPaginaWeb($sPaginaWeb){

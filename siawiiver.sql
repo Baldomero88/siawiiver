@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-05-2018 a las 23:05:14
+-- Tiempo de generación: 06-05-2018 a las 20:13:03
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.4
 
@@ -37,8 +37,15 @@ CREATE TABLE `cliente` (
   `Municipio` varchar(20) NOT NULL,
   `TelefonoCliente` varchar(15) NOT NULL,
   `Referencia` varchar(100) NOT NULL,
-  `ContraseñaWifi` varchar(50) NOT NULL
+  `ContrasenaWifi` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `cliente`
+--
+
+INSERT INTO `cliente` (`Id_Cliente`, `Id_PuntoAcceso`, `NombreCliente`, `DireccionCliente`, `Localidad`, `Municipio`, `TelefonoCliente`, `Referencia`, `ContrasenaWifi`) VALUES
+(21, 1, 'salvador', '', '', '', '', 'khiuhi', 'kkh');
 
 -- --------------------------------------------------------
 
@@ -95,7 +102,10 @@ INSERT INTO `empleado` (`Id_Empleado`, `NombreEmpleado`, `DireccionEmpleado`, `T
 (6, 'baldomero reyes alvarez', 'san jose neria municipio chocaman', '2731228603', 'tecnico', 1250),
 (7, 'baldomero reyes alvarez', 'san jose neria municipio chocaman', '2731228603', 'tecnico', 1250),
 (8, 'pedro', '', '', '', 0),
-(9, 'eretgrte', '', '', '', 0);
+(9, 'eretgrte', '', '', '', 0),
+(10, 'BALDOMERO REYES ALVAREZ', 'SAN JOSE NERIA', '2731228603', 'TECNICO', 2586),
+(11, 'jorge', '', '', '', 5200),
+(12, 'DANIEL MURILLO ORTIZ', 'IXHUATLAN DEL CAFE', '2784512690', 'TECNICO', 2500);
 
 -- --------------------------------------------------------
 
@@ -123,15 +133,26 @@ CREATE TABLE `producto` (
 
 CREATE TABLE `provedor` (
   `Id_Provedor` int(10) NOT NULL,
-  `NombreCompañia` varchar(50) NOT NULL,
-  `NombreContactoCompañia` varchar(50) NOT NULL,
-  `DireccionCompañia` varchar(100) NOT NULL,
+  `NombreCompania` varchar(50) NOT NULL,
+  `NombreContactoCompania` varchar(50) NOT NULL,
+  `DireccionCompania` varchar(100) NOT NULL,
   `Ciudad` varchar(50) NOT NULL,
   `CodigoPostal` int(10) NOT NULL,
   `Pais` varchar(50) NOT NULL,
-  `TelefonoCompañia` varchar(15) NOT NULL,
+  `TelefonoCompania` varchar(15) NOT NULL,
   `PaginaWeb` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `provedor`
+--
+
+INSERT INTO `provedor` (`Id_Provedor`, `NombreCompania`, `NombreContactoCompania`, `DireccionCompania`, `Ciudad`, `CodigoPostal`, `Pais`, `TelefonoCompania`, `PaginaWeb`) VALUES
+(1, 'DECME', '', '', '', 0, '', '', ''),
+(2, 'COMPUCELL', 'KJBJ', '', '', 0, '', '', ''),
+(3, 'COMPUCELL', 'sirjioeurhiekjr', 'iwuehiue', 'jwhyew', 85964, 'MÃ©xico', '5289445212', 'WWW.DECME.COM'),
+(4, 'DECME', '', '', '', 2147483647, '', '', ''),
+(5, 'STEREN', 'JORGE RODRIGUEZ CAMPUZANO', 'CALLE 3 ENTRE AV 2 Y 3', 'CORDOBA', 94500, 'MÃ©xico', '273 125 25 21', 'WWW.STEREN.COM.MX');
 
 -- --------------------------------------------------------
 
@@ -146,8 +167,21 @@ CREATE TABLE `puntoacceso` (
   `NombreContacto` varchar(100) NOT NULL,
   `TelefonoPuntoAcceso` varchar(15) NOT NULL,
   `DireccionMac` varchar(25) NOT NULL,
-  `ContraseñaWifi` varchar(50) NOT NULL
+  `ContrasenaWifi` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `puntoacceso`
+--
+
+INSERT INTO `puntoacceso` (`Id_PuntoAcceso`, `NombrePuntoAcceso`, `Ubicacion`, `NombreContacto`, `TelefonoPuntoAcceso`, `DireccionMac`, `ContrasenaWifi`) VALUES
+(1, 'PALMAS', '', '', '', '', ''),
+(2, 'PALMAS', 'CHOCAMAN', 'JORGE', '2714589748', 'sD:23:', 'SKJDBSK546546'),
+(3, 'neria', '', '', '', '', ''),
+(4, 'kjsdj', 'kjere', 'erjier', '4546535', 'jjfjyfuew', ''),
+(5, 'kjsdj', 'kjere', 'erjier', '4546535', 'jjfjyfuew', ''),
+(6, 'lhkulhgvjhb ', 'norte', 'jhvh', '65465', '', 'jhghujgfjtf'),
+(7, 'TOMATLAN', 'COLONIA MORELOS', 'ESTEBAN JIMENEZ CORTEZ', '2711224589', 'AS:D4:SD:4D:4D:5F', 'SOLOGORE995566');
 
 -- --------------------------------------------------------
 
@@ -161,7 +195,7 @@ CREATE TABLE `servicio` (
   `Id_Cliente` int(10) NOT NULL,
   `TipoPaquete` varchar(15) NOT NULL,
   `PrecioPaquete` float NOT NULL,
-  `DeacripcionPaquete` text NOT NULL,
+  `DescripcionPaquete` text NOT NULL,
   `TipoServicio` varchar(50) NOT NULL,
   `PrecioServicio` float NOT NULL,
   `DescripcionServicio` text NOT NULL,
@@ -182,7 +216,7 @@ CREATE TABLE `usuario` (
   `Id_Empleado` int(10) NOT NULL,
   `Rol` varchar(15) NOT NULL,
   `NombreUsuario` varchar(50) NOT NULL,
-  `Contraseña` varchar(33) NOT NULL
+  `Contrasena` varchar(33) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -259,7 +293,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `Id_Cliente` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_Cliente` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `cobranza`
@@ -277,31 +311,31 @@ ALTER TABLE `detalleservicio`
 -- AUTO_INCREMENT de la tabla `empleado`
 --
 ALTER TABLE `empleado`
-  MODIFY `Id_Empleado` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `Id_Empleado` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `Id_Producto` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_Producto` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `provedor`
 --
 ALTER TABLE `provedor`
-  MODIFY `Id_Provedor` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_Provedor` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `puntoacceso`
 --
 ALTER TABLE `puntoacceso`
-  MODIFY `Id_PuntoAcceso` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_PuntoAcceso` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `servicio`
 --
 ALTER TABLE `servicio`
-  MODIFY `Id_Servicio` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_Servicio` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`

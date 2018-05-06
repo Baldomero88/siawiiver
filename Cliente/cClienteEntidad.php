@@ -11,10 +11,10 @@ protected $_sLocalidad = null;
 protected $_sMunicipio = null;
 protected $_sTelefonoCliente = null;
 protected $_sReferencia = null;
-protected $_sContraseñaWifi = null;
+protected $_sContrasenaWifi = null;
 
 public function setId_PuntoAcceso($nId_PuntoAcceso){
-	$this->$_nId_PuntoAcceso = $Id_PuntoAcceso;
+	$this->_nId_PuntoAcceso = $nId_PuntoAcceso;
 
 }
 
@@ -78,12 +78,12 @@ public function getReferencia(){
 
 }
 
-public function setContraseñaWifi($sContraseñaWifi){
-	$this->_sContraseñaWifi = $sContraseñaWifi;
+public function setContrasenaWifi($sContrasenaWifi){
+	$this->_sContrasenaWifi = $sContrasenaWifi;
 
 }
-public function getContraseñaWifi(){
-	return $this->_sContraseñaWifi;
+public function getContrasenaWifi(){
+	return $this->_sContrasenaWifi;
 
 }
 

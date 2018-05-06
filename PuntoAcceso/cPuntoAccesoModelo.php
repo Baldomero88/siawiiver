@@ -20,10 +20,10 @@ public function RegistrarPuntoAcceso(){
 	$sNombreContacto = $this->_oPuntoAcceso->getNombreContacto();
 	$sTelefonoPuntoAcceso = $this->_oPuntoAcceso->getTelefonoPuntoAcceso();
 	$sDireccionMac = $this->_oPuntoAcceso->getDireccionMac();
-	$sContraseñaWifi = $this->_oPuntoAcceso->getContraseñaWifi();
+	$sContrasenaWifi = $this->_oPuntoAcceso->getContrasenaWifi();
 
-	$sql ="INSERT INTO PuntoAcceso (NombrePuntoAcceso, Ubicacion, NombreContacto, TelefonoPuntoAcceso, DireccionMac, ContraseñaWifi) VALUES ('$sNombrePuntoAcceso', '$sUbicacion', '$sNombreContacto', '$sTelefonoPuntoAcceso', 
-	'$sDireccionMac', '$sContraseñaWifi')";
+	$sql ="INSERT INTO PuntoAcceso (NombrePuntoAcceso, Ubicacion, NombreContacto, TelefonoPuntoAcceso, DireccionMac, ContrasenaWifi) VALUES ('$sNombrePuntoAcceso', '$sUbicacion', '$sNombreContacto', '$sTelefonoPuntoAcceso', 
+	'$sDireccionMac', '$sContrasenaWifi')";
 	$result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error($this->_dblink));
 	mysqli_close($this->_dblink);
 

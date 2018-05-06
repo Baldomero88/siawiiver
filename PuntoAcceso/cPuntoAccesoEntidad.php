@@ -8,7 +8,7 @@ protected $_Ubicacion = null;
 protected $_NombreContacto = null;
 protected $_TelefonoPuntoAcceso = null;
 protected $_DireccionMac = null;
-protected $_ContraseñaWifi = null;
+protected $_ContrasenaWifi = null;
 
 public function setIdPuntoAcceso($IdPuntoAcceso){
 	$this->_IdPuntoAcceso = $IdPuntoAcceso;
@@ -52,11 +52,11 @@ public function getDireccionMac(){
 	return $this->_sDireccionMac;
 }
 
-public function setContraseñaWifi($sContraseñaWifi){
-	$this->_sContraseñaWifi = $sContraseñaWifi;
+public function setContrasenaWifi($sContrasenaWifi){
+	$this->_sContrasenaWifi = $sContrasenaWifi;
 }
-public function getContraseñaWifi(){
-	return $this->_sContraseñaWifi;
+public function getContrasenaWifi(){
+	return $this->_sContrasenaWifi;
 }
 
 }

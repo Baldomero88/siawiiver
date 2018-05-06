@@ -6,8 +6,9 @@ class cClienteModelo{
 
 protected $_dblink;
 protected $_oCliente;
+public $aFields = array();
 
-function cClienteModelo($dblink, $oClienteEntidad){
+function cClienteModelo($dblink, $oClienteEntidad = false){
 
 	$this->_dblink = $dblink;
 	$this->_oCliente = $oClienteEntidad;
@@ -23,14 +24,28 @@ public function RegistrarCliente(){
 	$sMunicipio = $this->_oCliente->getMunicipio();
 	$sTelefonoCliente = $this->_oCliente->getTelefonoCliente();
 	$sReferencia = $this->_oCliente->getReferencia();
-	$sContraseñaWifi = $this->_oCliente->getContraseñaWifi();
+	$sContrasenaWifi = $this->_oCliente->getContrasenaWifi();
 
-	$sql ="INSERT INTO Cliente (Id_PuntoAcceso, NombreCliente, DireccionCliente, Localidad, Municipio, TelefonoCliente, Referencia, ContraseñaWifi) VALUES ('$nId_PuntoAcceso', '$sNombreCliente', '$sDireccionCliente', '$sLocalidad', '$sMunicipio', '$nTelefonoCliente', '$sReferencia', '$sContraseñaWifi')";
+
+var_dump($this->_dblink);
+	$sql ="INSERT INTO Cliente (Id_PuntoAcceso, NombreCliente, DireccionCliente, Localidad, Municipio, TelefonoCliente, Referencia, ContrasenaWifi) VALUES ('$nId_PuntoAcceso', '$sNombreCliente', '$sDireccionCliente', '$sLocalidad', '$sMunicipio', '$sTelefonoCliente', '$sReferencia', '$sContrasenaWifi')";
 	$result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error());
 	mysqli_close($this->_dblink);
 }
 
+public function ObtenerClienteServicio(){
+	
+	$sql ="SELECT Id_Cliente, NombreCliente FROM Cliente";	
+	$result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error($this->_dblink));
+	if ($result->num_rows === 0){exit;}
+
+	while($row = $result->fetch_assoc()) {
+		$this->aFields[] = $row;
+	}
+	
+	return $this->aFields;
 }
 
+}
 
  ?>

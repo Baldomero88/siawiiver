@@ -6,8 +6,9 @@ class cEmpleadoModelo{
 
 protected $_dblink;
 protected $_oEmpleado;
+public $aFields = array();
 
-function cEmpleadoModelo($dblink, $oEmpleadoEntidad){
+function cEmpleadoModelo($dblink, $oEmpleadoEntidad = false){
 
 	$this->_dblink = $dblink;
 	$this->_oEmpleado = $oEmpleadoEntidad;
@@ -22,13 +23,40 @@ $sTelefonoEmpleado = $this->_oEmpleado->getTelefonoEmpleado();
 $sPuesto = $this->_oEmpleado->getPuesto();
 $nHonorario = $this->_oEmpleado->getHonorario();
 
-//var_dump($this->_sNombreEmpleado);
-//	mysqli_query($this->_dblink, "INSERT INTO Empleado (`NombreEmpleado`, `DireccionEmpleado`, `TelefonoEmpleado`, `Puesto`, `Honorario`) VALUES ($this->_sNombreEmpleado, $this->_sDireccionEmpleado, $this->_sTelefonoEmpleado, $this->_sPuesto, $this->_nHonorario)") or die(mysqli_error($this->_dblink));
-
 
 	$sql ="INSERT INTO Empleado (NombreEmpleado, DireccionEmpleado, TelefonoEmpleado, Puesto, Honorario) VALUES ('$sNombreEmpleado', '$sDireccionEmpleado', '$sTelefonoEmpleado', '$sPuesto', '$nHonorario')";
 	$result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error());
 	mysqli_close($this->_dblink);
+
+
+
+}
+
+public function ObtenerEmpleadoUsuario(){
+	
+	$sql ="SELECT Id_Empleado, NombreEmpleado FROM Empleado";	
+	$result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error($this->_dblink));
+	if ($result->num_rows === 0){exit;}
+
+	while($row = $result->fetch_assoc()) {
+		$this->aFields[] = $row;
+	}
+	
+	return $this->aFields;
+
+}
+
+public function ObtenerEmpleadoServicio(){
+	
+	$sql ="SELECT Id_Empleado, NombreEmpleado FROM Empleado";	
+	$result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error($this->_dblink));
+	if ($result->num_rows === 0){exit;}
+
+	while($row = $result->fetch_assoc()) {
+		$this->aFields[] = $row;
+	}
+	
+	return $this->aFields;
 }
 
 }

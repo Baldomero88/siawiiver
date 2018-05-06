@@ -1,12 +1,12 @@
 <?php 
 
-class sUsuarioEntidad{
+class cUsuarioEntidad{
 
 
 protected $_nId_Empleado = null;
 protected $_sRol = null;
 protected $_sNombreUsuario = null;
-protected $_sContraseña = null;
+protected $_sContrasena = null;
 
 public function setId_Empleado($nId_Empleado){
 	$this->_nId_Empleado = $nId_Empleado;
@@ -14,7 +14,7 @@ public function setId_Empleado($nId_Empleado){
 }
 # EL METODO OBTIENE EL VALOR DE LOS ATRIBUTOS Y SE PUEDE UTILIZAR EN CUALQUIER CLASE DEBIDO A QUE ES PUBLICO
 public function getId_Empleado(){
-	return $this->_sId_Empleado;
+	return $this->_nId_Empleado;
 
 }
 public function setRol($sRol){
@@ -36,13 +36,13 @@ public function getNombreUsuario(){
 	return $this->_sNombreUsuario;
 
 }
-public function setContraseña($sContraseña){
-	$this->_sContraseña = $sContraseña;
+public function setContrasena($sContrasena){
+	$this->_sContrasena = $sContrasena;
 
 }
 # EL METODO OBTIENE EL VALOR DE LOS ATRIBUTOS Y SE PUEDE UTILIZAR EN CUALQUIER CLASE DEBIDO A QUE ES PUBLICO
-public function getContraseña(){
-	return $this->_sContraseña;
+public function getContrasena(){
+	return $this->_sContrasena;
 
 }
 

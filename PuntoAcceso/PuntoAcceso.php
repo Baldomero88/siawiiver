@@ -10,7 +10,7 @@
 	<input type="text" name="sNombreContacto" placeholder="sNombreContacto">
 	<input type="text" name="sTelefonoPuntoAcceso" placeholder="sTelefonoPuntoAcceso">
 	<input type="text" name="sDireccionMac" placeholder="sDireccionMac">
-	<input type="text" name="sContraseñaWifi" placeholder="sContraseñaWifi">
+	<input type="text" name="sContrasenaWifi" placeholder="sContraseñaWifi">
 	<input type="submit" name="RegistrarPuntoAcceso" value="Registrar Punto de Acceso">
 </FORM>
 </body>
