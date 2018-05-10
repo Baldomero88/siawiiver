@@ -14,14 +14,6 @@ $nUnidadServicio = $_POST['nUnidadServicio'];
 $nReordenarNivel = $_POST['nReordenarNivel'];
 $nTerminado = $_POST['nTerminado'];
 
-echo $nId_Provedor;
-echo $sNombreProducto;
-echo $nCantidadUnidad;
-echo $nPrecioUnidad;
-echo $nUnidadAlmacen;
-echo $nUnidadServicio;
-echo $nReordenarNivel;
-echo $nTerminado;
 #se crea el objeto  oProductoEntidad 
 $oProductoEntidad = new cProductoEntidad; 
 $oConectar = new cConexion;

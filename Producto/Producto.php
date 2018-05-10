@@ -14,7 +14,7 @@
 	<select name="nId_Provedor">
 		<?php 
 		for ($i = 0; $i < count($oProvedorProducto); $i++) {
-			echo '<option value='.$oProvedorProducto[$i]['nId_Provedor'].'>'.$oProvedorProducto[$i]['NombreCompania'].'</option>';
+			echo '<option value='.$oProvedorProducto[$i]['Id_Provedor'].'>'.$oProvedorProducto[$i]['NombreCompania'].'</option>';
 		}
 		?>
 	</select>

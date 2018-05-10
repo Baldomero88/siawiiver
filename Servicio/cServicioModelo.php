@@ -29,11 +29,8 @@ public function RegistrarServicio(){
 	$sBajaServicio = $this->_oServicio->getBajaServicio();
 	$sEstadoServicio = $this->_oServicio->getEstadoServicio();
 
-
-	var_dump($this->_dblink);
-
 	$sql ="INSERT INTO Servicio (Id_Empleado, Id_Cliente, TipoPaquete, PrecioPaquete, DescripcionPaquete, TipoServicio, PrecioServicio, DescripcionServicio, FormaPago, FechaServicio, BajaServicio, EstadoServicio) VALUES ('$nId_Empleado', '$nId_Cliente', '$sTipoPaquete', '$nPrecioPaquete', '$sDescripcionPaquete', '$sTipoServicio', '$nPrecioServicio', '$sDescripcionServicio', '$sFormaPago', '$sFechaServicio', '$sBajaServicio', '$sEstadoServicio')";
-	$result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error());
+	$result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error($this->_dblink));
 	mysqli_close($this->_dblink);
 }
 

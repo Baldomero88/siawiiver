@@ -20,10 +20,9 @@ public function RegistrarUsuario(){
 	$sRol = $this->_oUsuario->getRol();
 	$sNombreUsuario = $this->_oUsuario->getNombreUsuario();
 	$sContrasena = $this->_oUsuario->getContrasena();
-	
-var_dump($this->_dblink);
+
 	$sql ="INSERT INTO Usuario (Id_Empleado, Rol, NombreUsuario, Contrasena) VALUES ('$nId_Empleado', '$sRol', '$sNombreUsuario', '$sContrasena')";
-	$result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error());
+	$result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error($this->_dblink));
 	mysqli_close($this->_dblink);
 }
 

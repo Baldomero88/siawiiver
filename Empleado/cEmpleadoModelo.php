@@ -25,7 +25,7 @@ $nHonorario = $this->_oEmpleado->getHonorario();
 
 
 	$sql ="INSERT INTO Empleado (NombreEmpleado, DireccionEmpleado, TelefonoEmpleado, Puesto, Honorario) VALUES ('$sNombreEmpleado', '$sDireccionEmpleado', '$sTelefonoEmpleado', '$sPuesto', '$nHonorario')";
-	$result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error());
+	$result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error($this->_dblink));
 	mysqli_close($this->_dblink);
 
 

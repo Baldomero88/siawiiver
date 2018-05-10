@@ -25,11 +25,8 @@ public function RegistrarProducto(){
 	$nReordenarNivel = $this->_oProducto->getReordenarNivel();
 	$nTerminado = $this->_oProducto->getTerminado();
 	
-
-var_dump($this->_dblink);
-
 	$sql ="INSERT INTO Producto (Id_Provedor, NombreProducto, CantidadUnidad, PrecioUnidad, UnidadAlmacen, UnidadServicio, ReordenarNivel, Terminado) VALUES ('$nId_Provedor', '$sNombreProducto', '$nCantidadUnidad', '$nPrecioUnidad', '$nUnidadAlmacen', '$nUnidadServicio', '$nReordenarNivel', '$nTerminado')";
-	$result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error());
+	$result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error($this->_dblink));
 	mysqli_close($this->_dblink);
 }
 

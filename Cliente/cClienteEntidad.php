@@ -3,7 +3,7 @@
 
 class cClienteEntidad{
 
-
+protected $_nId_Cliente = null;
 protected $_nId_PuntoAcceso = null; 
 protected $_sNombreCliente = null;
 protected $_sDireccionCliente = null;
@@ -11,7 +11,16 @@ protected $_sLocalidad = null;
 protected $_sMunicipio = null;
 protected $_sTelefonoCliente = null;
 protected $_sReferencia = null;
-protected $_sContrasenaWifi = null;
+
+public function setId_Cliente($nId_Cliente){
+	$this->_nId_Cliente = $nId_Cliente;
+
+}
+
+public function getId_Cliente(){
+	return $this->_nId_Cliente;
+
+}
 
 public function setId_PuntoAcceso($nId_PuntoAcceso){
 	$this->_nId_PuntoAcceso = $nId_PuntoAcceso;
@@ -77,16 +86,6 @@ public function getReferencia(){
 	return $this->_sReferencia;
 
 }
-
-public function setContrasenaWifi($sContrasenaWifi){
-	$this->_sContrasenaWifi = $sContrasenaWifi;
-
-}
-public function getContrasenaWifi(){
-	return $this->_sContrasenaWifi;
-
-}
-
 
 }
 
