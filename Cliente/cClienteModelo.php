@@ -26,7 +26,7 @@ class cClienteModelo{
 		$result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error($this->_dblink));
 		mysqli_close($this->_dblink);
 	}
-
+//fUNCION QUE SIRVE PARA CONOCER LA INFORMACION DEL CLIENTE RELACIONADO CON EL SERVICIO
 	public function ObtenerClienteServicio(){
 		$sql ="SELECT Id_Cliente, NombreCliente FROM Cliente";
 		$result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error($this->_dblink));

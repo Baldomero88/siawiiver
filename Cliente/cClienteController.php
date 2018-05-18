@@ -20,7 +20,7 @@ class cClienteController{
         $this->_oPuntoAccesoModelo = New cPuntoAccesoModelo($this->_dbLink, $this->_oPuntoAccesoEntidad);
         $this->_oClienteModelo = New cClienteModelo($this->_dbLink);
     }
-
+// funcion para obtener los puntos de acceso y relacionarlos con los CLIENTES
     public function ObtenerPuntoAccesoCliente(){
         return $this->_oPuntoAccesoModelo->ObtenerPuntoAccesoCliente();
     }

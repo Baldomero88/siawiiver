@@ -11,10 +11,10 @@
 </head>
 <body>
 <form action="UsuarioRegistro.php" method="post">
-	<select name="nId_Empleado">
+	<select name="Id_Empleado">
 		<?php 
 		for ($i = 0; $i < count($oEmpleadoUsuario); $i++) {
-			echo '<option value='.$oEmpleadoUsuario[$i]['nId_Empleado'].'>'.$oEmpleadoUsuario[$i]['NombreEmpleado'].'</option>';
+			echo '<option value='.$oEmpleadoUsuario[$i]['Id_Empleado'].'>'.$oEmpleadoUsuario[$i]['NombreEmpleado'].'</option>';
 		}
 		?>
 	</select>

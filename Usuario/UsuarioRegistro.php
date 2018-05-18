@@ -5,7 +5,7 @@ require_once('../Conexion/cConexion.php');
 require_once('cUsuarioModelo.php');
 
 
-$nId_Empleado = $_POST['nId_Empleado'];
+$nId_Empleado = $_POST['Id_Empleado'];
 $sRol = $_POST['sRol'];
 $sNombreUsuario = $_POST['sNombreUsuario'];
 $sContrasena = $_POST['sContrasena'];

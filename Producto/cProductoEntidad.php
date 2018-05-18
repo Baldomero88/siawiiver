@@ -2,6 +2,7 @@
 
 class cProductoEntidad{
 
+protected $_nId_Producto = null;
 protected $_nId_Provedor = null; 
 protected $_sNombreProducto = null;
 protected $_nCantidadUnidad = null;
@@ -10,6 +11,16 @@ protected $_nUnidadAlmacen = null;
 protected $_nUnidadServicio = null;
 protected $_nReordenarNivel = null;
 protected $_nTerminado = null;
+
+public function setId_Producto($nId_Producto){
+	$this->_nId_Producto = $nId_Producto;
+
+}
+
+public function getId_Producto(){
+	return $this->_nId_Producto;
+
+}
 
 public function setId_Provedor($nId_Provedor){
 	$this->_nId_Provedor = $nId_Provedor;

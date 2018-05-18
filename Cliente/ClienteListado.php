@@ -57,7 +57,7 @@
             <table border="1">
                 <tr>
                     <td>Punto de Acceso</td>
-                    <td>Nombre</td>
+                    <td>Nombre del cliente</td>
                     <td>Dirección</td>
                     <td>Localidad</td>
                     <td>Municipio</td>

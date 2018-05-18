@@ -5,8 +5,8 @@ require_once('../Conexion/cConexion.php');
 require_once('cServicioModelo.php');
 
 
-$nId_Empleado = $_POST['nId_Empleado'];
-$nId_Cliente = $_POST['nId_Cliente'];
+$nId_Empleado = $_POST['Id_Empleado'];
+$nId_Cliente = $_POST['Id_Cliente'];
 $sTipoPaquete = $_POST['sTipoPaquete'];
 $nPrecioPaquete = $_POST['nPrecioPaquete'];
 $sDescripcionPaquete = $_POST['sDescripcionPaquete'];
@@ -42,6 +42,12 @@ $oServicioEntidad->setEstadoServicio($sEstadoServicio);
 
 
 $oServicioModelo = New cServicioModelo($dbLink, $oServicioEntidad);
-$oServicioModelo->RegistrarServicio();
-
+if (isset($_POST['RegistrarServicio'])) {
+    $oServicioModelo->RegistrarServicio();
+}
+elseif(isset($_POST['modificarServicio'])) {
+    $nId_Servicio = $_POST['Id_Servicio'];
+    $oServicioEntidad->setId_Servicio($nId_Servicio);
+    $oServicioModelo->ModificarServicio();
+}
 ?>

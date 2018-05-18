@@ -2,7 +2,7 @@
 
 class cServicioEntidad{
 
-
+protected $_nId_Servicio = null;
 protected $_nId_Empleado = null;
 protected $_nId_Cliente = null;   
 protected $_sTipoPaquete = null;  
@@ -16,6 +16,14 @@ protected $_sFechaServicio = null;
 protected $_sBajaServicio = null;  
 protected $_sEstadoServicio = null;  
 
+public function setId_Servicio($nId_Servicio){
+
+	$this->_nId_Servicio = $nId_Servicio;
+}
+
+public function getId_Servicio(){
+	return $this->_nId_Servicio;
+}
 
 public function setId_Empleado($nId_Empleado){
 

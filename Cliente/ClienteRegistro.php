@@ -29,7 +29,6 @@ $oClienteEntidad->setTelefonoCliente($sTelefonoCliente);
 $oClienteEntidad->setReferencia($sReferencia);
 
 $oClienteModelo = New cClienteModelo($dbLink, $oClienteEntidad);
-
 if (isset($_POST['RegistrarCliente'])) {
     $oClienteModelo->RegistrarCliente();
 }

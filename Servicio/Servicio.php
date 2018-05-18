@@ -11,17 +11,17 @@
 </head>
 <body>
 <form action="ServicioRegistro.php" method="post">
-	<select name="nId_Empleado">
+	<select name="Id_Empleado">
 		<?php 
 		for ($i = 0; $i < count($oEmpleadoServicio); $i++) {
-			echo '<option value='.$oEmpleadoServicio[$i]['nId_Empleado'].'>'.$oEmpleadoServicio[$i]['NombreEmpleado'].'</option>';
+			echo '<option value='.$oEmpleadoServicio[$i]['Id_Empleado'].'>'.$oEmpleadoServicio[$i]['NombreEmpleado'].'</option>';
 		}
 		?>
 	</select>
-	<select name="nId_Cliente">
+	<select name="Id_Cliente">
 		<?php 
 		for ($i = 0; $i < count($oClienteServicio); $i++) {
-			echo '<option value='.$oClienteServicio[$i]['nId_Cliente'].'>'.$oClienteServicio[$i]['NombreCliente'].'</option>';
+			echo '<option value='.$oClienteServicio[$i]['Id_Cliente'].'>'.$oClienteServicio[$i]['NombreCliente'].'</option>';
 		}
 		?>
 	</select>

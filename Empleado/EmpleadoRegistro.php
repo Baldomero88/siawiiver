@@ -28,7 +28,13 @@ $oEmpleadoEntidad->setPuesto($sPuesto);
 $oEmpleadoEntidad->setHonorario($nHonorario);
 
 $oEmpleadoModelo = New cEmpleadoModelo($dbLink, $oEmpleadoEntidad);
-$oEmpleadoModelo->RegistrarEmpleado();
-
+if (isset($_POST['RegistrarEmpleado'])) {
+    $oEmpleadoModelo->RegistrarEmpleado();
+}
+elseif(isset($_POST['modificarEmpleado'])) {
+    $nId_Empleado = $_POST['Id_Empleado'];
+    $oEmpleadoEntidad->setId_Empleado($nId_Empleado);
+    $oEmpleadoModelo->ModificarEmpleado();
+}
  ?>
 

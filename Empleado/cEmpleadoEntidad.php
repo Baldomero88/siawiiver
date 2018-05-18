@@ -6,11 +6,22 @@ class cEmpleadoEntidad{
 
 
 #SE DECLARAN LOS VALORES COMO NULOS PARA ASIGNAR VAOR POSTERIORMENTE
+protected $_nId_Empleado = null;
 protected $_sNombreEmpleado = null;
 protected $_sDireccionEmpleado = null;
 protected $_sTelefonoEmpleado = null;
 protected $_sPuesto = null;
 protected $_nHonorario = null;
+
+public function setId_Empleado($nId_Empleado){
+	$this->_nId_Empleado = $nId_Empleado;
+
+}
+
+public function getId_Empleado(){
+	return $this->_nId_Empleado;
+
+}
 
 #SE ESTABLECE UN METODO PARA ASIGNAR LOS ATRIBUTOS DE LA CLASE EMPLEADOENTIDAD
 public function setNombreEmpleado($sNombreEmpleado){
