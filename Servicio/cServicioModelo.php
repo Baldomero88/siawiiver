@@ -36,23 +36,9 @@ public function RegistrarServicio(){
 
 	public function obtenerListadoServicio(){
 		$sql ="SELECT NombreEmpleado, NombreCliente, Id_Servicio, TipoPaquete, PrecioPaquete, DescripcionPaquete, TipoServicio, PrecioServicio, DescripcionServicio, FormaPago, FechaServicio, BajaServicio, EstadoServicio
-				FROM Empleado AS EM, Servicio AS SE
-				WHERE EM.Id_Empleado = SE.Id_Servicio";
-		$result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error($this->_dblink));
-		if ($result->num_rows === 0){exit; return false;}
-
-		$aFields = array();
-		while($row = $result->fetch_assoc()) {
-			$aFields[] = $row;
-		}
-
-		return $aFields;
-	}
-
-	public function obtenerListadoServicio2(){
-		$sql ="SELECT NombreEmpleado, NombreCliente, Id_Servicio, TipoPaquete, PrecioPaquete, DescripcionPaquete, TipoServicio, PrecioServicio, DescripcionServicio, FormaPago, FechaServicio, BajaServicio, EstadoServicio
-				FROM Cliente AS CL, Servicio AS SE
-				WHERE CL.Id_Cliente = SE.Id_Servicio";
+				FROM Empleado AS EM, Cliente AS CL, Servicio AS SE
+				WHERE EM.Id_Empleado = SE.Id_Empleado
+				AND  CL.Id_Cliente = SE.Id_Cliente";
 		$result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error($this->_dblink));
 		if ($result->num_rows === 0){exit; return false;}
 
@@ -66,10 +52,11 @@ public function RegistrarServicio(){
 
 
 	public function obtenerListadoServicioPorId($nIdServicio){
-		$sql ="SELECT NombreEmpleado, NombreCliente, Id_Servicio, TipoPaquete, PrecioPaquete, DescripcionPaquete, TipoServicio, PrecioServicio, DescripcionServicio, FormaPago, FechaServicio, BajaServicio, EstadoServicio
-				FROM Empleado AS EM, Servicio AS SE 
-				WHERE EM.Id_Cliente = SE.Id_Cliente
-				AND Id_Servicio = $nIdServicio";
+		$sql ="SELECT Id_Servicio,SE.Id_Empleado, NombreEmpleado,SE.Id_Cliente, NombreCliente, TipoPaquete, PrecioPaquete, DescripcionPaquete, TipoServicio, PrecioServicio, DescripcionServicio, FormaPago, FechaServicio, BajaServicio, EstadoServicio
+				FROM Empleado AS EM, Cliente AS CL, Servicio AS SE
+				WHERE Id_Servicio = $nIdServicio
+				AND EM.Id_Empleado = SE.Id_Empleado
+				AND  CL.Id_Cliente = SE.Id_Cliente";
 		$result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error($this->_dblink));
 		if ($result->num_rows === 0){exit; return false;}
 
@@ -82,6 +69,11 @@ public function RegistrarServicio(){
 	}
 
 	public function ModificarServicio(){
+		
+		//echo '<pre>';
+	    //print_r($this->_oServicio);
+	    //echo '</pre>';
+
 		$nId_Servicio = $this->_oServicio->getId_Servicio();
 		$nId_Empleado = $this->_oServicio->getId_Empleado();
 		$nId_Cliente = $this->_oServicio->getId_Cliente();

@@ -10,6 +10,12 @@
 	<title>Registro de Servicio</title>
 </head>
 <body>
+
+ <ul>
+    <li><a href="../index.php">Inicio</a></li>
+    <li><a href="servicioListado.php">Listar Servicios</a></li>
+</ul>
+
 <form action="ServicioRegistro.php" method="post">
 	<select name="Id_Empleado">
 		<?php 
@@ -32,8 +38,8 @@
 	<input type="text" name="nPrecioServicio" placeholder="COSTO DEL SERVICIO">
 	<input type="text" name="sDescripcionServicio" placeholder="DESCRIBE LAS CARACTERISTICAS DEL SERVICIO">
 	<input type="text" name="sFormaPago" placeholder="EFECTIVO o CUENTA BANCARIA">
-	<input type="text" name="sFechaServicio" placeholder="FECHA DEL SERVICIO">
-	<input type="text" name="sBajaServicio" placeholder="BAJA DE SERVICIO">
+	<input type="date" name="sFechaServicio" placeholder="FECHA DEL SERVICIO">
+	<input type="date" name="sBajaServicio" placeholder="BAJA DE SERVICIO">
 	<input type="text" name="sEstadoServicio" placeholder="ACTIVO o INACTIVO">
 
 	<input type="submit" name="RegistrarServicio" value="Registrar Servicio">

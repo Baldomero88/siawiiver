@@ -54,7 +54,7 @@
                     <td>Dirección</td>
                     <td>Teléfono</td>
                     <td>Puesto</td>
-                    <td>Honorario</td>>
+                    <td>Honorario</td>
                     <td>Modificar</td>
                     <td>Eliminar</td>
                 </tr>

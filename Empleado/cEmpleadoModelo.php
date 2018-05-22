@@ -75,8 +75,9 @@ public function ObtenerEmpleadoServicio(){
 
 	public function obtenerListadoEmpleadoPorId($nIdEmpleado){
 		$sql ="SELECT Id_Empleado, NombreEmpleado, DireccionEmpleado, TelefonoEmpleado, Puesto, Honorario
-				FROM Empleado AS Em
-				WHERE Em.Id_Empleado";
+				FROM Empleado
+				WHERE Id_Empleado = $nIdEmpleado";
+				
 		$result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error($this->_dblink));
 		if ($result->num_rows === 0){exit; return false;}
 

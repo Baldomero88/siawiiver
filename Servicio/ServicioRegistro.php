@@ -23,7 +23,6 @@ $oServicioEntidad = new cServicioEntidad;
 $oConectar = new cConexion;
 $dbLink = $oConectar->Conectar();
 
-
 # el objeto llama al metodo para asignar parametrosDescripcionPaquete
 $oServicioEntidad->setId_Empleado($nId_Empleado);
 $oServicioEntidad->setId_Cliente($nId_Cliente);
