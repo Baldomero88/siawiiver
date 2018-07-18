@@ -24,6 +24,13 @@ $oPuntoAccesoEntidad->setDireccionMac($sDireccionMac);
 $oPuntoAccesoEntidad->setContrasenaWifi($sContrasenaWifi);
 
 $oPuntoAccesoModelo = New cPuntoAccesoModelo($dbLink, $oPuntoAccesoEntidad);
-$oPuntoAccesoModelo->RegistrarPuntoAcceso();
+if (isset($_POST['RegistrarPuntoAcceso'])) {
+    $oPuntoAccesoModelo->RegistrarPuntoAcceso();
+}
+elseif(isset($_POST['modificarPuntoAcceso'])) {
+    $nId_PuntoAcceso = $_POST['Id_PuntoAcceso'];
+    $oPuntoAccesoEntidad->setId_PuntoAcceso($nId_PuntoAcceso);
+    $oPuntoAccesoModelo->ModificarPuntoAcceso();
+}
 
  ?>

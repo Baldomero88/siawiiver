@@ -10,6 +10,10 @@
 	<title>Registro de Producto</title>
 </head>
 <body>
+	<ul>
+    <li><a href="../index.php">Inicio</a></li>
+    <li><a href="ProductoListado.php">Lista de Productos</a></li>
+</ul>
 <form action="ProductoRegistro.php" method="post">
 	<select name="nId_Provedor">
 		<?php 

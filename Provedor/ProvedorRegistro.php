@@ -33,8 +33,17 @@ $oProvedorEntidad->setPais($sPais);
 $oProvedorEntidad->setTelefonoCompania($sTelefonoCompania);
 $oProvedorEntidad->setPaginaWeb($sPaginaWeb);
 
+
 $oProvedorModelo = New cProvedorModelo($dbLink, $oProvedorEntidad);
-$oProvedorModelo->RegistrarProvedor();
+if (isset($_POST['RegistrarProvedor'])) {
+    $oProvedorModelo->RegistrarProvedor();
+}
+elseif(isset($_POST['modificarProvedor'])) {
+    $nId_Provedor = $_POST['Id_Provedor'];
+    $oProvedorEntidad->setId_Provedor($nId_Provedor);
+    $oProvedorModelo->ModificarProvedor();
+}
+
 
  ?>
 

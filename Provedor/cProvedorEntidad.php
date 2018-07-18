@@ -2,6 +2,7 @@
 
 class cProvedorEntidad{
 
+protected $_nId_Provedor = null;
 protected $_sNombreCompania = null;
 protected $_sContactoCompania = null;
 protected $_sDireccionCompania = null;
@@ -10,6 +11,13 @@ protected $_nCodigoPostal = null;
 protected $_sPais = null;
 protected $_sTelefonoCompania = null;
 protected $_sPaginaWeb = null;
+
+public function setId_Provedor($nId_Provedor){
+	$this->_nId_Provedor = $nId_Provedor;
+}
+public function getId_Provedor(){
+	return $this->_nId_Provedor;
+}
 
 public function setNombreCompania($sNombreCompania){
 	$this->_sNombreCompania = $sNombreCompania;

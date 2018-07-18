@@ -2,19 +2,19 @@
 
 class cPuntoAccesoEntidad{
 
-protected $_IdPuntoAcceso = null;
+protected $_nId_PuntoAcceso = null;
 protected $_sNombrePuntoAcceso = null;
-protected $_Ubicacion = null;
-protected $_NombreContacto = null;
-protected $_TelefonoPuntoAcceso = null;
-protected $_DireccionMac = null;
-protected $_ContrasenaWifi = null;
+protected $_sUbicacion = null;
+protected $_sNombreContacto = null;
+protected $_sTelefonoPuntoAcceso = null;
+protected $_sDireccionMac = null;
+protected $_sContrasenaWifi = null;
 
-public function setIdPuntoAcceso($IdPuntoAcceso){
-	$this->_IdPuntoAcceso = $IdPuntoAcceso;
+public function setId_PuntoAcceso($nId_PuntoAcceso){
+	$this->_nId_PuntoAcceso = $nId_PuntoAcceso;
 }
-public function getIdPuntoAcceso(){
-	return $this->_sIdPuntoAcceso;
+public function getId_PuntoAcceso(){
+	return $this->_nId_PuntoAcceso;
 }
 
 public function setNombrePuntoAcceso($sNombrePuntoAcceso){

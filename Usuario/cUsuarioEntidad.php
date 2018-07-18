@@ -2,11 +2,21 @@
 
 class cUsuarioEntidad{
 
-
+protected $_nId_Usuario = null;
 protected $_nId_Empleado = null;
 protected $_sRol = null;
 protected $_sNombreUsuario = null;
 protected $_sContrasena = null;
+
+public function setId_Usuario($nId_Usuario){
+	$this->_nId_Usuario = $nId_Usuario;
+
+}
+
+public function getId_Usuario(){
+	return $this->_nId_Usuario;
+
+}
 
 public function setId_Empleado($nId_Empleado){
 	$this->_nId_Empleado = $nId_Empleado;

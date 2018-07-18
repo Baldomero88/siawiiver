@@ -46,6 +46,72 @@ public function ObtenerProvedorProducto(){
 	return $this->aFields;
 } 
 
+public function obtenerListadoProvedor(){
+		$sql ="SELECT Id_Provedor, NombreCompania, NombreContactoCompania,  DireccionCompania, Ciudad, CodigoPostal, Pais, TelefonoCompania, PaginaWeb
+				FROM Provedor AS Em
+				WHERE Em.Id_Provedor";
+		$result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error($this->_dblink));
+		if ($result->num_rows === 0){exit; return false;}
+
+		$aFields = array();
+		while($row = $result->fetch_assoc()) {
+			$aFields[] = $row;
+		}
+
+		return $aFields;
+	}
+
+	public function obtenerListadoProvedorPorId($nIdProvedor){
+		$sql ="SELECT Id_Provedor, NombreCompania, NombreContactoCompania, DireccionCompania, Ciudad, CodigoPostal, Pais, TelefonoCompania, PaginaWeb
+				FROM Provedor
+				WHERE Id_Provedor = $nIdProvedor";
+				
+		$result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error($this->_dblink));
+		if ($result->num_rows === 0){exit; return false;}
+
+		$aFields = array();
+		while($row = $result->fetch_assoc()) {
+			$aFields[] = $row;
+		}
+
+		return $aFields;
+	}
+
+	public function ModificarProvedor(){
+		$nId_Provedor = $this->_oProvedor->getId_Provedor();
+		$sNombreCompania = $this->_oProvedor->getNombreCompania();
+		$sNombreContactoCompania = $this->_oProvedor->getNombreContactoCompania();
+		$sDireccionCompania = $this->_oProvedor->getDireccionCompania();
+		$sCiudad = $this->_oProvedor->getCiudad();
+		$nCodigoPostal = $this->_oProvedor->getCodigoPostal();
+		$sPais = $this->_oProvedor->getPais();
+		$sTelefonoCompania = $this->_oProvedor->getTelefonoCompania();
+		$sPaginaWeb = $this->_oProvedor->getPaginaWeb();
+
+		$sql =" UPDATE Provedor
+				SET	NombreCompania = '$sNombreCompania',
+					NombreContactoCompania = '$sNombreContactoCompania',
+					DireccionCompania = '$sDireccionCompania',
+					Ciudad = '$sCiudad',
+					CodigoPostal = '$nCodigoPostal',
+					Pais = '$sPais',
+					TelefonoCompania = '$sTelefonoCompania',
+					PaginaWeb = '$sPaginaWeb'
+				WHERE Id_Provedor = $nId_Provedor";
+
+		$result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error($this->_dblink));
+
+		mysqli_close($this->_dblink);
+    }
+
+    public function eliminarProvedorPorId($nId_Provedor){
+		$sql =" DELETE FROM Provedor
+				WHERE Id_Provedor = $nId_Provedor";
+
+		$result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error($this->_dblink));
+
+		mysqli_close($this->_dblink);
+    }
 }
 
 

@@ -10,6 +10,11 @@
 	<title>Registro de Cliente</title>
 </head>
 <body>
+ <ul>
+    <li><a href="../index.php">Inicio</a></li>
+    <li><a href="ClienteListado.php">Lista de  Clientes</a></li>
+</ul>
+
 <form action="ClienteRegistro.php" method="post">
 	<select name="nId_PuntoAcceso">
 		<?php 

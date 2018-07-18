@@ -4,6 +4,12 @@
 	<title>Registro de Provedor</title>
 </head>
 <body>
+
+<ul>
+    <li><a href="../index.php">Inicio</a></li>
+    <li><a href="ProvedorListado.php">Lista de Provedores</a></li>
+</ul>
+
 <form action="ProvedorRegistro.php" method="post">
 	<input type="text" name="sNombreCompania" placeholder="sNombreCompania">
 	<input type="text" name="sNombreContactoCompania" placeholder="sNombreContactoCompania">

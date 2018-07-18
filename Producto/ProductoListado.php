@@ -18,6 +18,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+
+     <ul class="nav nav-tabs">
+        <li class="nav-item"><a  class="nav-link" href="../index.php">Inicio</a></li>
+        <li class="nav-item"><a  class="nav-link" href="Producto.php">Registrar Producto</a></li>
+    </ul>
+
     <?php
         // Condicion que se ejecuta si se presiona el boton de Modificar
         if (isset($_POST['modificarProducto'])) {

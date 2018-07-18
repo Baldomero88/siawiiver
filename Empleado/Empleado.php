@@ -4,6 +4,12 @@
 	<title>Registro de Empleado</title>
 </head>
 <body>
+
+<ul>
+    <li><a href="../index.php">Inicio</a></li>
+    <li><a href="EmpleadoListado.php">Lista de Empleados</a></li>
+</ul>
+
 <form action="EmpleadoRegistro.php" method="post">
 	<input type="text" name="sNombreEmpleado" placeholder="sNombreEmpleado">
 	<input type="text" name="sDireccionEmpleado" placeholder="sDireccionEmpleado">
