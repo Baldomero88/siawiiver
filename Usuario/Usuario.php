@@ -26,7 +26,7 @@
 	</select>
 	<input type="text" name="sRol" placeholder="ROL">
 	<input type="text" name="sNombreUsuario" placeholder="NOMBRE DE USUARIO">
-	<input type="text" name="sContrasena" placeholder="CONTRASEÑA">
+	<input type="password" name="sContrasena" placeholder="CONTRASEÑA">
 	<input type="submit" name="RegistrarUsuario" value="Registrar Usuario">
 </FORM>
 </body>

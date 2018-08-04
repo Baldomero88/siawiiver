@@ -23,12 +23,13 @@
 
 </head>
 <body>
-
+    <div class="container-fluid">
+    
     <ul class="nav nav-tabs">
         <li class="nav-item"><a  class="nav-link" href="../index.php">Inicio</a></li>
         <li class="nav-item"><a  class="nav-link" href="servicio.php">Registrar Servicio</a></li>
     </ul>
-
+    
     <?php
         // Condicion que se ejecuta si se presiona el boton de Modificar
         if (isset($_POST['modificarServicio'])) {
@@ -115,7 +116,8 @@
         else{
     ?>
             <!-- Se muestra la tabla de clientes-->
-            <table class="table table-sm table-bordered table-striped">
+            <div class="table-bordered table-responsive">
+            <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">EMPLEADO</th>
@@ -168,9 +170,9 @@
                 echo '</tr>';
                 echo '</form>';
             }
-            echo '<tbody></table>';
+            echo '</tbody></table></div>';
         }
     ?>
-
+</div>
 </body>
 </html>

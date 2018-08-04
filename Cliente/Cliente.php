@@ -18,9 +18,9 @@
 <form action="ClienteRegistro.php" method="post">
 	<select name="nId_PuntoAcceso">
 		<?php 
-		for ($i = 0; $i < count($oPuntoAccesoCliente); $i++) {
-			echo '<option value='.$oPuntoAccesoCliente[$i]['Id_PuntoAcceso'].'>'.$oPuntoAccesoCliente[$i]['NombrePuntoAcceso'].'</option>';
-		}
+			for ($i = 0; $i < count($oPuntoAccesoCliente); $i++) {
+				echo '<option value='.$oPuntoAccesoCliente[$i]['Id_PuntoAcceso'].'>'.$oPuntoAccesoCliente[$i]['NombrePuntoAcceso'].'</option>';
+			}
 		?>
 	</select>
 	<input type="text" name="sNombreCliente" placeholder="sNombreCliente">

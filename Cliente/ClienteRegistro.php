@@ -17,7 +17,6 @@ $oClienteEntidad = new cClienteEntidad;
 $oConectar = new cConexion;
 $dbLink = $oConectar->Conectar();
 
-
 # el objeto llama al metodo para asignar parametro
 
 $oClienteEntidad->setId_PuntoAcceso($nId_PuntoAcceso);
@@ -29,6 +28,7 @@ $oClienteEntidad->setTelefonoCliente($sTelefonoCliente);
 $oClienteEntidad->setReferencia($sReferencia);
 
 $oClienteModelo = New cClienteModelo($dbLink, $oClienteEntidad);
+
 if (isset($_POST['RegistrarCliente'])) {
     $oClienteModelo->RegistrarCliente();
 }

@@ -15,13 +15,13 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Cliente</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
 
      <ul class="nav nav-tabs">
-        <li class="nav-item"><a  class="nav-link" href="../index.php">Inicio</a></li>
-        <li class="nav-item"><a  class="nav-link" href="Cliente.php">Registrar Cliente</a></li>
+        <li class="nav-item"><a class="nav-link" href="../index.php">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="Cliente.php">Registrar Cliente</a></li>
     </ul>
 
     <?php
@@ -38,13 +38,13 @@
                 }
                 echo '</select>';
 
-                echo '<input type="hidden" name="Id_Cliente" value='.$oListadoClientePorId[0]['Id_Cliente'].' >';
-                echo '<input type="text" name="sNombreCliente" value='.$oListadoClientePorId[0]['NombreCliente'].' placeholder="sNombreCliente">';
-                echo '<input type="text" name="sDireccionCliente" value='.$oListadoClientePorId[0]['DireccionCliente'].' placeholder="sDireccionCliente">';
-                echo '<input type="text" name="sLocalidad" value='.$oListadoClientePorId[0]['Localidad'].' placeholder="sLocalidad">';
-                echo '<input type="text" name="sMunicipio" value='.$oListadoClientePorId[0]['Municipio'].' placeholder="sMunicipio">';
-                echo '<input type="text" name="sTelefonoCliente" value='.$oListadoClientePorId[0]['TelefonoCliente'].' placeholder="sTelefonoCliente">';
-                echo '<input type="text" name="sReferencia" value='.$oListadoClientePorId[0]['Referencia'].' placeholder="sReferencia">';
+                echo '<input type="hidden" name="Id_Cliente" value="'.$oListadoClientePorId[0]['Id_Cliente'].'" >';
+                echo '<input type="text" name="sNombreCliente" value="'.$oListadoClientePorId[0]['NombreCliente'].'" placeholder="sNombreCliente">';
+                echo '<input type="text" name="sDireccionCliente" value="'.$oListadoClientePorId[0]['DireccionCliente'].'" placeholder="sDireccionCliente">';
+                echo '<input type="text" name="sLocalidad" value="'.$oListadoClientePorId[0]['Localidad'].'" placeholder="sLocalidad">';
+                echo '<input type="text" name="sMunicipio" value="'.$oListadoClientePorId[0]['Municipio'].'" placeholder="sMunicipio">';
+                echo '<input type="text" name="sTelefonoCliente" value="'.$oListadoClientePorId[0]['TelefonoCliente'].'" placeholder="sTelefonoCliente">';
+                echo '<input type="text" name="sReferencia" value="'.$oListadoClientePorId[0]['Referencia'].'" placeholder="sReferencia">';
                 echo '<input type="submit" name="modificarCliente" value="Modificar Cliente">';
             echo '</form>';
         }
