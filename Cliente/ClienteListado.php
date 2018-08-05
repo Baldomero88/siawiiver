@@ -12,18 +12,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Cliente</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Lista de Clientes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Librería CDN de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 </head>
 <body>
+<div class="container-fluid">
 
-     <ul class="nav nav-tabs">
-        <li class="nav-item"><a class="nav-link" href="../index.php">Inicio</a></li>
-        <li class="nav-item"><a class="nav-link" href="Cliente.php">Registrar Cliente</a></li>
-    </ul>
-
+     <ul class="nav nav-pills nav-justified">
+        <a class="nav-item nav-link" href="../index.php">INICIO</a></li>
+        <a class="nav-item nav-link" href="Cliente.php">REGISTRAR CLIENTE</a></li>
+        <a class="nav-item nav-link active" href="../Cliente/ClienteListado.php ">CLIENTES</a></li>
+        <a class="nav-item nav-link" href="../Empleado/EmpleadoListado.php">EMPLEADOS</a></li>
+        <a class="nav-item nav-link" href="../Producto/ProductoListado.php">PRODUCTOS</a></li>
+        <a class="nav-item nav-link" href="../Provedor/ProvedorListado.php">PROVEDORES</a></li>
+        <a class="nav-item nav-link" href="../PuntoAcceso/PuntoAccesoListado.php">PUNTOS DE ACCESO</a></li>
+        <a class="nav-item nav-link" href="../Usuario/UsuarioListado.php">USUARIOS</a></li>
+        <a class="nav-item nav-link" href="../Servicio/servicioListado.php">SERVICIOS</a></li>
+        
+        <br>    <br>    
+        </ul>
+        <br>    <br>    
+        <h3> <P> <EM> Clientes   WIIVER </EM></P></h3>
     <?php
         // Condicion que se ejecuta si se presiona el boton de Modificar
         if (isset($_POST['modificarCliente'])) {
@@ -32,21 +47,49 @@
             $oListadoClientePorId = $oClienteController->obtenerListadoClientePorId($nId_Cliente);
 
             echo '<form action="ClienteRegistro.php" method="post">';
-                echo '<select name="nId_PuntoAcceso">';
+
+            echo '<div class="form-group">';
+            echo'<div class="float col-xs-12 col-sm-6">';
+            echo'<h5>';
+            echo '<label>Nombre del Punto de Acceso</label>';
+            echo'<br>';
+                echo '<select class="form-control" name="nId_PuntoAcceso">';
                 for ($i = 0; $i < count($oPuntoAccesoCliente); $i++) {
                     echo '<option value='.$oPuntoAccesoCliente[$i]['Id_PuntoAcceso'].'>'.$oPuntoAccesoCliente[$i]['NombrePuntoAcceso'].'</option>';
                 }
-                echo '</select>';
 
-                echo '<input type="hidden" name="Id_Cliente" value="'.$oListadoClientePorId[0]['Id_Cliente'].'" >';
-                echo '<input type="text" name="sNombreCliente" value="'.$oListadoClientePorId[0]['NombreCliente'].'" placeholder="sNombreCliente">';
-                echo '<input type="text" name="sDireccionCliente" value="'.$oListadoClientePorId[0]['DireccionCliente'].'" placeholder="sDireccionCliente">';
-                echo '<input type="text" name="sLocalidad" value="'.$oListadoClientePorId[0]['Localidad'].'" placeholder="sLocalidad">';
-                echo '<input type="text" name="sMunicipio" value="'.$oListadoClientePorId[0]['Municipio'].'" placeholder="sMunicipio">';
-                echo '<input type="text" name="sTelefonoCliente" value="'.$oListadoClientePorId[0]['TelefonoCliente'].'" placeholder="sTelefonoCliente">';
-                echo '<input type="text" name="sReferencia" value="'.$oListadoClientePorId[0]['Referencia'].'" placeholder="sReferencia">';
-                echo '<input type="submit" name="modificarCliente" value="Modificar Cliente">';
-            echo '</form>';
+                echo'<br>';
+                echo '</select>';
+                echo '<input type="hidden" class="form-control" name="Id_Cliente" value="'.$oListadoClientePorId[0]['Id_Cliente'].'" >';
+                
+                echo'<br>';
+                echo '<label>Nombre del Cliente</label>';
+                echo '<input type="text" class="form-control" name="sNombreCliente" value="'.$oListadoClientePorId[0]['NombreCliente'].'" placeholder="NOMBRE(S), PRIMER APELLIDO, SEGUNDO APELLIDO">';
+                
+                echo '<br>';
+                echo '<label>Dirección</label>';
+                echo '<input type="text" class="form-control" name="sDireccionCliente" value="'.$oListadoClientePorId[0]['DireccionCliente'].'" placeholder="CALLE   AVENIDA   NÚMERO EXTERIOR">';
+                
+                echo '<br>';
+                echo '<label>Nombre de la Localidad</label>';
+                echo '<input type="text" class="form-control" name="sLocalidad" value="'.$oListadoClientePorId[0]['Localidad'].'" placeholder="LOCALIDAD">';
+            
+                echo '<br>';    
+                echo '<label>Nombre del Municipio</label>';
+                echo '<input type="text" class="form-control" name="sMunicipio" value="'.$oListadoClientePorId[0]['Municipio'].'" placeholder="MUNICIPIO">';
+                
+                echo '<br>';
+                echo '<label>Número Telefónico</label>';
+                echo '<input type="text" class="form-control" name="sTelefonoCliente" value="'.$oListadoClientePorId[0]['TelefonoCliente'].'" placeholder="(LADA)+">';
+            
+
+                echo '<br>';    
+                echo '<label>Referencia de localización</label>';
+                echo '<input type="text" class="form-control" name="sReferencia" value="'.$oListadoClientePorId[0]['Referencia'].'" placeholder="REFERENCIA FÍSICA">';
+            
+                echo '<br>';           
+                echo '<input class="btn btn-primary" type="submit" name="modificarCliente" value="Modificar Cliente">';
+                echo '</form>';
         }
 
         // Condicion que se ejecuta si se presiona el boton de Eliminar
@@ -60,17 +103,21 @@
         else{
     ?>
             <!-- Se muestra la tabla de clientes-->
-            <table border="1">
-                <tr>
-                    <td>Punto de Acceso</td>
-                    <td>Nombre del cliente</td>
-                    <td>Dirección</td>
-                    <td>Localidad</td>
-                    <td>Municipio</td>
-                    <td>Teléfono</td>
-                    <td>Referencia</td>
-                    <td>Modificar</td>
-                    <td>Eliminar</td>
+           <div class="table-bordered table-responsive">
+            <table class="table">
+
+                <thead class="thead-light">
+                    <tr>
+                    <th scope="col">PUNTO DE ACCESO</th>
+                    <th scope="col">NOMBRE DEL CLIENTE</th>
+                    <th scope="col">DIRECCIÓN</th>
+                    <th scope="col">LOCALIDAD</th>
+                    <th scope="col">MUNICIPIO</th>
+                    <th scope="col">TELEFÓNO</th>
+                    <th scope="col">REFERENCIA</th>
+                    
+                    <th scope="col">MODIFICAR</th>
+                    <th scope="col">ELIMINAR</th>
                 </tr>
     <?php
 
@@ -87,7 +134,7 @@
 
                 // Mostramos todas las columnas oobtenidas a través del objeto
                 echo '<tr>';
-                    echo '<td>'.$oListadoCliente[$i]['NombrePuntoAcceso'].'</td>';
+                    echo '<th scope="row">'.$oListadoCliente[$i]['NombrePuntoAcceso'].'</td>';
                     echo '<td>'.$oListadoCliente[$i]['NombreCliente'].'</td>';
                     echo '<td>'.$oListadoCliente[$i]['DireccionCliente'].'</td>';
                     echo '<td>'.$oListadoCliente[$i]['Localidad'].'</td>';

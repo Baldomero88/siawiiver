@@ -7,42 +7,107 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Registro de Servicio</title>
+	
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Registro de Servicio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Librería CDN de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 </head>
 <body>
+ 
+  <div class="container-fluid">
+    
+    <ul class="nav nav-pills nav-justified">
+        <a class="nav-item nav-link" href="../index.php">INICIO</a></li>
+        <a class="nav-item nav-link active" href="../Servicio/servicio">REGISTRAR SERVICIO</a></li>
+        <a class="nav-item nav-link" href="ServicioListado.php">LISTA DE SERVICIOS</a></li>
+        <a class="nav-item nav-link" href="../Cliente/ClienteListado.php">CLIENTES</a></li>
+        <a class="nav-item nav-link" href="../Empleado/EmpleadoListado.php">EMPLEADOS</a></li>
+        <a class="nav-item nav-link" href="../Producto/ProductoListado.php">PRODUCTOS</a></li>
+        <a class="nav-item nav-link" href="../Provedor/ProvedorListado.php">PROVEDORES</a></li>
+        <a class="nav-item nav-link" href="../PuntoAcceso/PuntoAccesoListado.php">PUNTOS DE ACCESO</a></li>
+        <a class="nav-item nav-link" href="../Usuario/UsuarioListado.php">USUARIOS</a></li>
 
- <ul>
-    <li><a href="../index.php">Inicio</a></li>
-    <li><a href="servicioListado.php">Listar Servicios</a></li>
-</ul>
+    <br>	<br>	
+
+    </ul>
+	</div>
+
+
+
+	
 
 <form action="ServicioRegistro.php" method="post">
-	<select name="Id_Empleado">
+	
+	<div class="float col-xs-12 col-sm-6">
+	<br>	
+	<h5>
+	<label>	Nombre del Empleado</label>
+	<br>	
+	<select class="form-control" name="Id_Empleado">
 		<?php 
 		for ($i = 0; $i < count($oEmpleadoServicio); $i++) {
 			echo '<option value='.$oEmpleadoServicio[$i]['Id_Empleado'].'>'.$oEmpleadoServicio[$i]['NombreEmpleado'].'</option>';
 		}
 		?>
 	</select>
-	<select name="Id_Cliente">
+	<br>	
+	<label>	Nombre del Cliente</label>
+	<br>
+	<select class="form-control" name="Id_Cliente">
 		<?php 
 		for ($i = 0; $i < count($oClienteServicio); $i++) {
 			echo '<option value='.$oClienteServicio[$i]['Id_Cliente'].'>'.$oClienteServicio[$i]['NombreCliente'].'</option>';
 		}
 		?>
 	</select>
-	<input type="text" name="sTipoPaquete" placeholder="BASICO INTERMEDIO PREMIUM">
-	<input type="text" name="nPrecioPaquete" placeholder="PRECIO">
-	<input type="text" name="sDescripcionPaquete" placeholder="DESCRIBE LAS CARACTERISTICAS DEL PAQUETE">
-	<input type="text" name="sTipoServicio" placeholder="INSTALACION MANTENIMIENTO VENTA">
-	<input type="text" name="nPrecioServicio" placeholder="COSTO DEL SERVICIO">
-	<input type="text" name="sDescripcionServicio" placeholder="DESCRIBE LAS CARACTERISTICAS DEL SERVICIO">
-	<input type="text" name="sFormaPago" placeholder="EFECTIVO o CUENTA BANCARIA">
-	<input type="date" name="sFechaServicio" placeholder="FECHA DEL SERVICIO">
-	<input type="date" name="sBajaServicio" placeholder="BAJA DE SERVICIO">
-	<input type="text" name="sEstadoServicio" placeholder="ACTIVO o INACTIVO">
 
-	<input type="submit" name="RegistrarServicio" value="Registrar Servicio">
+	<br>	
+	<label>	Tipo de Paquete</label>
+	<input class="form-control" type="text" name="sTipoPaquete" placeholder="BASICO INTERMEDIO PREMIUM">
+	
+	<br>	
+	<label>	Precio del Paquete</label>
+	<input class="form-control" type="text" name="nPrecioPaquete" placeholder="PRECIO">
+	
+	<br>	
+	<label>	Descripción del Paquete</label>
+	<input  class="form-control" type="text" name="sDescripcionPaquete" placeholder="DESCRIBE LAS CARACTERISTICAS DEL PAQUETE">
+	
+	<br>
+	<label>	Tipo de Servicio</label>
+	<input  class="form-control" type="text" name="sTipoServicio" placeholder="INSTALACIÓN   MANTENIMIENTO    VENTA">
+	
+	<br>	
+	<label>	Precio del Servicio</label>
+	<input class="form-control" type="text" name="nPrecioServicio" placeholder="COSTO DEL SERVICIO">
+	
+	<br>	
+	<label>	Descripción del Servicio</label>
+	<input class="form-control" type="text" name="sDescripcionServicio" placeholder="DESCRIBE LAS CARACTERISTICAS DEL SERVICIO">
+	
+	<br>	
+	<label>	Forma de Pago</label>
+	<input class="form-control" type="text" name="sFormaPago" placeholder="EFECTIVO o CUENTA BANCARIA">
+	
+	<br>	
+	<label>	Fecha del Servicio</label>
+	<input class="form-control" type="date" name="sFechaServicio" placeholder="FECHA DEL SERVICIO">
+	
+	<br>	
+	<label>	Fecha de baja del Servicio</label>
+	<input class="form-control" type="date" name="sBajaServicio" placeholder="BAJA DE SERVICIO">
+	
+	<br>	
+	<label>	Estado del Servicio</label>
+	<input class="form-control" type="text" name="sEstadoServicio" placeholder="ACTIVO o INACTIVO">
+	
+	<br>	
+	<input class="btn btn-primary" type="submit" name="RegistrarServicio" value="Registrar Servicio">
 </FORM>
 </body>
 </html>

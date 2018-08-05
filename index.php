@@ -8,34 +8,23 @@
 </head>
 <body>
 	<div class="container-fluid">
-		<ul class="nav nav-tabs">
-			<li class="nav-item">
-				<a  class="nav-link" href="Cliente/ClienteListado.php">Cliente</a>
-			</li>
+		<ul class="nav nav-pills nav-justified ">
 
-			<li class="nav-item">
-				<a  class="nav-link" href="Empleado/EmpleadoListado.php">Empleado</a>
-			</li>
+			<a  class="nav-item nav-link active" href="index.php">INICIO</a> </li>
 
-			<li class="nav-item">
-				<a  class="nav-link" href="Producto/ProductoListado.php">Producto</a>
-			</li>
+			<a  class="nav-item nav-link" href="Cliente/ClienteListado.php">CLIENTES</a> </li>
 
-			<li class="nav-item">
-				<a  class="nav-link" href="Provedor/ProvedorListado.php">Provedor</a>
-			</li>
+			<a  class="nav-item nav-link" href="Empleado/EmpleadoListado.php">EMPLEADOS</a> </li>
 
-			<li class="nav-item">
-				<a  class="nav-link" href="PuntoAcceso/PuntoAccesoListado.php">PuntoAcceso</a>
-			</li>
+			<a  class="nav-item nav-link" href="Producto/ProductoListado.php">PRODUCTOS</a> </li>
 
-			<li class="nav-item">
-				<a  class="nav-link" href="Usuario/UsuarioListado.php">Usuario</a>
-			</li>
+			<a  class="nav-item nav-link" href="Provedor/ProvedorListado.php">PROVEDORES</a> </li>
 
-			<li class="nav-item">
-				<a  class="nav-link" href="Servicio/ServicioListado.php">Servicio</a>
-			</li>
+			<a  class="nav-item nav-link" href="PuntoAcceso/PuntoAccesoListado.php">PUNTOS DE ACCESO</a> </li>
+
+			<a  class="nav-item nav-link" href="Usuario/UsuarioListado.php">USUARIOS</a> </li>
+
+			<a  class="nav-item nav-link" href="Servicio/ServicioListado.php">SERVICIOS</a> </li>
 		</ul>
 	</div>
 </body>

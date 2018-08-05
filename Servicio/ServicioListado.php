@@ -15,7 +15,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Servicio</title>
+    <title>Lista de Servicios</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Librería CDN de Bootstrap -->
@@ -23,13 +23,25 @@
 
 </head>
 <body>
+
+
     <div class="container-fluid">
     
-    <ul class="nav nav-tabs">
-        <li class="nav-item"><a  class="nav-link" href="../index.php">Inicio</a></li>
-        <li class="nav-item"><a  class="nav-link" href="servicio.php">Registrar Servicio</a></li>
+    <ul class="nav nav-pills nav-justified">
+        <a class="nav-item nav-link" href="../index.php">INICIO</a>
+        <a class="nav-item nav-link" href="servicio.php">REGISTRAR SERVICIO</a></li>
+        <a class="nav-item nav-link active" href="../Servicio/servicioListado.php">SERVICIOS</a></li>
+        <a class="nav-item nav-link" href="../Cliente/ClienteListado.php">CLIENTES</a></li>
+        <a class="nav-item nav-link" href="../Empleado/EmpleadoListado.php">EMPLEADOS</a></li>
+        <a class="nav-item nav-link" href="../Producto/ProductoListado.php">PRODUCTOS</a></li>
+        <a class="nav-item nav-link" href="../Provedor/ProvedorListado.php">PROVEDORES</a></li>
+        <a class="nav-item nav-link" href="../PuntoAcceso/PuntoAccesoListado.php">PUNTOS DE ACCESO</a></li>
+        <a class="nav-item nav-link" href="../Usuario/UsuarioListado.php">USUARIOS</a></li>
+        
+    <br>    <br>    
     </ul>
-    
+    <br>    <br>    
+    <h3> <P> <EM>Servicios     WIIVER </EM></P></h3>
     <?php
         // Condicion que se ejecuta si se presiona el boton de Modificar
         if (isset($_POST['modificarServicio'])) {
@@ -40,64 +52,84 @@
             echo '<form action="ServicioRegistro.php" method="post">';
                 
                 echo'<div class="form-group">';
-                
-                    echo '<input type="hidden" name="Id_Servicio" value='.$oListadoServicioPorId[0]['Id_Servicio'].' >';
+                echo'<div class="float col-xs-12 col-sm-6">';
+                echo'<h5>';
+                echo'<p class="text-primary">';
 
-                    echo'<label>Nombre de Empleado</label>';
-                    echo '<select class="form-control" name="Id_Empleado" id="selectEmpleadao">';
-                        echo'<option value='.$oListadoServicioPorId[0]['Id_Empleado'].' selected>'.$oListadoServicioPorId[0]['NombreEmpleado'].'</option>';
+                    echo '<input type="hidden" name="Id_Servicio" value="'.$oListadoServicioPorId[0]['Id_Servicio'].'"" >';
+                    
+                    echo '<label>Nombre del Empleado</label>';
+                    echo '<select class="form-control" name="Id_Empleado" id="selectEmpleado">';
+                    echo '<option value='.$oListadoServicioPorId[0]['Id_Empleado'].' selected>'.$oListadoServicioPorId[0]['NombreEmpleado'].'</option>';
                         for ($i = 0; $i < count($oEmpleadoServicio); $i++) {
                             echo '<option value='.$oEmpleadoServicio[$i]['Id_Empleado'].'>'.$oEmpleadoServicio[$i]['NombreEmpleado'].'</option>';
                         }
-                    echo '</select>';
+                
+                echo '</select>';
+                echo '<br>';
                     
-                    echo'<label>Nombre Cliente</label>';
+                    echo'<label>Nombre del Cliente</label>';
                     echo '<select class="form-control" name="Id_Cliente">';
                     echo'<option value='.$oListadoServicioPorId[0]['Id_Cliente'].' selected>'.$oListadoServicioPorId[0]['NombreCliente'].'</option>';
                         for ($i = 0; $i < count($oClienteServicio); $i++) {
                          echo '<option value='.$oClienteServicio[$i]['Id_Cliente'].'>'.$oClienteServicio[$i]['NombreCliente'].'</option>';
                         }
-                    echo '</select>';
 
-                    echo'<label>Tipo Paquete</label>';
+                echo '</select>';
+                 echo '<br>';
+                    echo'<label>Tipo de Paquete</label>';
                     echo '<select class="form-control" name="sTipoPaquete">';
-                        echo'<option value="Basico">Básico</option>';
-                        echo'<option value="Premium">Premium</option>';
-                    echo'</select>';
+                        echo'<option value="Basico">BÁSICO</option>';
+                        echo'<option value="Intermedio">INTERMEDIO</option>';
+                        echo'<option value="Premium">PREMIUM</option>';
+                
+                echo'</select>';
+                 echo '<br>';
+                    echo'<label>Precio del Paquete</label>';
+                    echo '<input class="form-control" type="text" name="nPrecioPaquete" value="'.$oListadoServicioPorId[0]['PrecioPaquete'].'" placeholder="PRECIO DEL PAQUETE">';
+                 echo '<br>';
 
-                    echo'<label>Precio Paquete</label>';
-                    echo '<input class="form-control" type="text" name="nPrecioPaquete" value='.$oListadoServicioPorId[0]['PrecioPaquete'].' placeholder="nPrecioPaquete">';
+                    echo'<label>Descrpción del Paquete</label>';
+                    echo '<input class="form-control" type="text" name="sDescripcionPaquete" value="'.$oListadoServicioPorId[0]['DescripcionPaquete'].'"" placeholder="REALIZA UNA BREVE DESCRIPCIÓN DEL PAQUETE">';
+                 echo '<br>';
+                    echo'<label>Tipo de Servicio</label>';
+                    echo '<select class="form-control" name="sTipoServicio">';
+                        echo'<option value="Instalacion">INSTALACIÓN</option>';
+                        echo'<option value="Mantenimiento">MANTENIMIENTO</option>';
+                        echo'<option value="Venta">VENTA</option>';
 
-                    echo'<label>Descrpción Paquete</label>';
-                    echo '<input class="form-control" type="text" name="sDescripcionPaquete" value='.$oListadoServicioPorId[0]['DescripcionPaquete'].' placeholder="sDescripcionPaquete">';
-
-                    echo'<label>Tipo Servicio</label>';
-                    echo '<input class="form-control" type="text" name="sTipoServicio" value='.$oListadoServicioPorId[0]['TipoServicio'].' placeholder="sTipoServicio">';
-
-                    echo'<label>Precio Servicio</label>';
-                    echo '<input class="form-control" type="text" name="nPrecioServicio" value='.$oListadoServicioPorId[0]['PrecioServicio'].' placeholder="nPrecioServicio">';
-
-                    echo'<label>Descripción Servicio</label>';
-                    echo '<input class="form-control" type="text" name="sDescripcionServicio" value='.$oListadoServicioPorId[0]['DescripcionServicio'].' placeholder="sDescripcionServicio">';
-
-                    echo'<label>Forma Pago</label>';
+                echo'</select>';
+                 echo '<br>';
+                    echo'<label>Precio del Servicio</label>';
+                    echo '<input class="form-control" type="text" name="nPrecioServicio" value="'.$oListadoServicioPorId[0]['PrecioServicio'].'" placeholder="nPrecioServicio">';
+                 
+                 echo '<br>';
+                    echo'<label>Descripción del Servicio</label>';
+                    echo '<input class="form-control" type="text" name="sDescripcionServicio" value="'.$oListadoServicioPorId[0]['DescripcionServicio'].'" placeholder="REALIZA UNA BREVE DESCRIPCIÓN DEL SERVICIO">';
+                 
+                 echo '<br>';
+                    echo'<label>Forma de Pago</label>';
                     echo '<select class="form-control" name="sFormaPago">';
-                        echo'<option value="Tarjeta">Tarjeta</option>';
-                        echo'<option value="Efectivo">Efectivo</option>';
+                        echo'<option value="Tarjeta">TARJETA</option>';
+                        echo'<option value="Efectivo">EFECTIVO</option>';
                     echo'</select>';
-
-                    echo'<label>Fecha Servicio</label>';
+                 
+                 echo '<br>';
+                    echo'<label>Fecha del Servicio</label>';
                     echo '<input class="form-control" type="date" name="sFechaServicio" value='.$oListadoServicioPorId[0]['FechaServicio'].' placeholder="sFechaServicio">';
-
-                    echo'<label>Fecha Baja de servicio</label>';
-                    echo '<input class="form-control" type="date" name="sBajaServicio" value='.$oListadoServicioPorId[0]['BajaServicio'].' placeholder="sBajaServicio">';
-                    
+                 
+                 echo '<br>';
+                    echo'<label>Fecha de Baja del servicio</label>';
+                    echo '<input class="form-control" type="date" name="sBajaServicio" value="'.$oListadoServicioPorId[0]['BajaServicio'].'" placeholder="sBajaServicio">';
+                  
+                 echo '<br>';   
                     echo'<label>Estado del Servicio</label>';
                     echo '<select class="form-control" name="sEstadoServicio">';
-                        echo'<option value="Activo">Activo</option>';
-                        echo'<option value="Inactivo">Inactivo</option>';
+                        echo'<option value="Activo">ACTIVO</option>';
+                        echo'<option value="Inactivo">INACTIVO</option>';
                     echo'</select>';
-
+                 
+                 echo '<br>';
                     echo '<input class="btn btn-primary" type="submit" name="modificarServicio" value="Modificar Servicio">';
 
                 echo'</div>';
