@@ -11,17 +11,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Empleado</title>
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Lista de Empleados</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Librería CDN de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 </head>
 <body>
 
-     <ul class="nav nav-tabs">
-        <li class="nav-item"><a  class="nav-link" href="../index.php">Inicio</a></li>
-        <li class="nav-item"><a  class="nav-link" href="Empleado.php">Registrar Empleado</a></li>
+
+    <div class="container-fluid">
+    
+    <ul class="nav nav-pills nav-justified">
+        <a class="nav-item nav-link" href="../index.php">INICIO</a>
+        <a class="nav-item nav-link" href="Empleado.php">REGISTRAR EMPLEADO</a></li>
+        <a class="nav-item nav-link" href="../Cliente/ClienteListado.php ">CLIENTES</a></li>
+        <a class="nav-item nav-link active" href="../Empleado/EmpleadoListado.php">EMPLEADOS</a></li>
+        <a class="nav-item nav-link" href="../Producto/ProductoListado.php">PRODUCTOS</a></li>
+        <a class="nav-item nav-link" href="../Provedor/ProvedorListado.php">PROVEDORES</a></li>
+        <a class="nav-item nav-link" href="../PuntoAcceso/PuntoAccesoListado.php">PUNTOS DE ACCESO</a></li>
+        <a class="nav-item nav-link" href="../Usuario/UsuarioListado.php">USUARIOS</a></li>
+        <a class="nav-item nav-link" href="../Servicio/servicioListado.php">SERVICIOS</a></li>
+
+    <br>    <br>    
     </ul>
+    <br>    <br>    
+    <h3> <P> <EM>WIIVER Ingeniera Aplicada en Redes         EMPLEADOS </EM></P></h3>
 
     <?php
         // Condicion que se ejecuta si se presiona el boton de Modificar
@@ -31,15 +49,42 @@
             $oListadoEmpleadoPorId = $oEmpleadoController->obtenerListadoEmpleadoPorId($nId_Empleado);
 
             echo '<form action="EmpleadoRegistro.php" method="post">';
-                echo '</select>';
+            
+            echo'<div class="form-group">';
+                echo'<div class="float col-xs-12 col-sm-6">';
+                
+                //TAMAÑO DE LAS ETIQUETAS
+                echo'<h5>';
+                //AGREGA COLOR A LA ETIQUETAS
+                echo'<p class="text">';
+                    
+                    echo '<input type="hidden" class="form-group" name="Id_Empleado" value='.$oListadoEmpleadoPorId[0]['Id_Empleado'].' >';
 
-                echo '<input type="hidden" name="Id_Empleado" value='.$oListadoEmpleadoPorId[0]['Id_Empleado'].' >';
-                echo '<input type="text" name="sNombreEmpleado" value='.$oListadoEmpleadoPorId[0]['NombreEmpleado'].' placeholder="sNombreEmpleado">';
-                echo '<input type="text" name="sDireccionEmpleado" value='.$oListadoEmpleadoPorId[0]['DireccionEmpleado'].' placeholder="sDireccionEmpleado">';
-                echo '<input type="text" name="sTelefonoEmpleado" value='.$oListadoEmpleadoPorId[0]['TelefonoEmpleado'].' placeholder="sTelefonoEmpleado">';
-                echo '<input type="text" name="sPuesto" value='.$oListadoEmpleadoPorId[0]['Puesto'].' placeholder="sPuesto">';
-                echo '<input type="text" name="nHonorario" value='.$oListadoEmpleadoPorId[0]['Honorario'].' placeholder="nHonorario">';
-                echo '<input type="submit" name="modificarEmpleado" value="Modificar Empleado">';
+                echo '</select>';
+                echo '<br>';
+                    echo'<label>Nombre del Empleado</label>';
+                    echo '<input type="text" class="form-control" name="sNombreEmpleado" value='.$oListadoEmpleadoPorId[0]['NombreEmpleado'].' placeholder="sNombreEmpleado">';
+                
+                echo '<br>';
+                    echo'<label>Dirección</label>';
+                    echo '<input type="text" class="form-control" name="sDireccionEmpleado" value='.$oListadoEmpleadoPorId[0]['DireccionEmpleado'].' placeholder="sDireccionEmpleado">';
+                
+                echo '<br>';
+                    echo'<label>Número Telefónico</label>';
+                    echo '<input type="text" class="form-control" name="sTelefonoEmpleado" value='.$oListadoEmpleadoPorId[0]['TelefonoEmpleado'].' placeholder="sTelefonoEmpleado">';
+                
+                echo '<br>';
+                    echo'<label>Puesto que desempeña</label>';
+                    echo '<input type="text" class="form-control" name="sPuesto" value='.$oListadoEmpleadoPorId[0]['Puesto'].' placeholder="sPuesto">';
+                
+                echo '<br>';
+                    echo'<label>Honorarios</label>';
+                    echo '<input type="text" class="form-control" name="nHonorario" value='.$oListadoEmpleadoPorId[0]['Honorario'].' placeholder="nHonorario">';
+
+                echo '<br>';
+                        echo '<input type="submit" class="btn btn-success" name="modificarEmpleado" value="MODIFICAR EMPLEADO">';
+                    echo'<div';
+
             echo '</form>';
         }
 
@@ -54,16 +99,20 @@
         else{
     ?>
             <!-- Se muestra la tabla de Empleados-->
-            <table border="1">
+              <div class="table-bordered table-responsive">
+                <table class="table">
+                <thead class="thead-light">   
                 <tr>
-                    <td>Nombre del Empleado</td>
-                    <td>Dirección</td>
-                    <td>Teléfono</td>
-                    <td>Puesto</td>
-                    <td>Honorario</td>
-                    <td>Modificar</td>
-                    <td>Eliminar</td>
+                    <th scope="col">NOMBRE DEL EMPLEADO</th>
+                    <th scope="col">DIRECCIÓN</th>
+                    <th scope="col">TELÉFONO</th>
+                    <th scope="col">PUESTO</th>
+                    <th scope="col">HONORARIO</th>
+                    <th scope="col">MODIFICAR</th>
+                    <th scope="col">ELIMINAR</th>
+                </thead>
                 </tr>
+                
     <?php
 
             //Se recorre el objeto $oListadoEmpleado que contiene todos los registros que se solicitaron a través del controller
@@ -79,18 +128,18 @@
 
                 // Mostramos todas las columnas oobtenidas a través del objeto
                 echo '<tr>';
-                    echo '<td>'.$oListadoEmpleado[$i]['NombreEmpleado'].'</td>';
+                    echo '<th scope="row">'.$oListadoEmpleado[$i]['NombreEmpleado'].'</th>';
                     echo '<td>'.$oListadoEmpleado[$i]['DireccionEmpleado'].'</td>';
                     echo '<td>'.$oListadoEmpleado[$i]['TelefonoEmpleado'].'</td>';
                     echo '<td>'.$oListadoEmpleado[$i]['Puesto'].'</td>';
                     echo '<td>'.$oListadoEmpleado[$i]['Honorario'].'</td>';
                     // Mostramos los botones Modificar y Eliminar los cuales entran en las condiciones
-                    echo '<td><input type="submit" name="modificarEmpleado" value="Modificar" /></td>';
-                    echo '<td><input type="submit" name="eliminarEmpleado" value="Eliminar" /></td>';
+                    echo '<td><input type="submit" class="btn-primary" name="modificarEmpleado" value="Modificar" /></td>';
+                    echo '<td><input type="submit" class="btn-danger" name="eliminarEmpleado" value="Eliminar" /></td>';
                 echo '</tr>';
                 echo '</form>';
             }
-            echo '</table>';
+            echo '</tbody></table></div>';
         }
     ?>
 </body>

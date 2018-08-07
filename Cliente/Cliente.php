@@ -74,7 +74,7 @@
 	<input type="text" class="form-control" name="sReferencia" placeholder="REFERENCIA">
 	
 	<br>
-	<input class="btn btn-primary" type="submit" name="RegistrarCliente" value="Registrar Cliente">
+	<input class="btn btn-primary" type="submit" name="RegistrarCliente" value="REGISTRAR CLIENTE">
 </form>
 </body>
 </html>

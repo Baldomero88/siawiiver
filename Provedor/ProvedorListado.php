@@ -11,17 +11,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Provedor</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Lista de Empleados</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Librería CDN de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
 
-     <ul class="nav nav-tabs">
-        <li class="nav-item"><a  class="nav-link" href="../index.php">Inicio</a></li>
-        <li class="nav-item"><a  class="nav-link" href="Provedor.php">Registrar Provedor</a></li>
+     <div class="container-fluid">
+    
+    <ul class="nav nav-pills nav-justified">
+        <a class="nav-item nav-link" href="../index.php">INICIO</a>
+        <a class="nav-item nav-link" href="Provedor.php">REGISTRAR PROVEDOR</a></li>
+        <a class="nav-item nav-link" href="../Cliente/ClienteListado.php ">CLIENTES</a></li>
+        <a class="nav-item nav-link" href="../Empleado/EmpleadoListado.php">EMPLEADOS</a></li>
+        <a class="nav-item nav-link" href="../Producto/ProductoListado.php">PRODUCTOS</a></li>
+        <a class="nav-item nav-link active" href="../Provedor/ProvedorListado.php">PROVEDORES</a></li>
+        <a class="nav-item nav-link" href="../PuntoAcceso/PuntoAccesoListado.php">PUNTOS DE ACCESO</a></li>
+        <a class="nav-item nav-link" href="../Usuario/UsuarioListado.php">USUARIOS</a></li>
+        <a class="nav-item nav-link" href="../Servicio/servicioListado.php">SERVICIOS</a></li>
+
+    <br>    <br>    
     </ul>
+    <br>    <br>    
+    <h3> <P> <EM>WIIVER Ingeniera Aplicada en Redes         PROVEDORES </EM></P></h3>
 
     <?php
         // Condicion que se ejecuta si se presiona el boton de Modificar
@@ -31,20 +47,52 @@
             $oListadoProvedorPorId = $oProvedorController->obtenerListadoProvedorPorId($nId_Provedor);
 
             echo '<form action="ProvedorRegistro.php" method="post">';
-                echo '</select>';
+                
+                echo'<div class="form-group">';
+                echo'<div class="float col-xs-12 col-sm-6">';
+                //TAMAÑO DE LAS ETIQUETAS
+                echo'<h5>';
+                //AGREGA COLOR A LA ETIQUETAS
+                echo'<p class="text">';
+                echo '<input type="hidden" class="form-group" name="Id_Provedor" value='.$oListadoProvedorPorId[0]['Id_Provedor'].' >';
+                
+                echo '<br>';
+                echo '<label>Nombre de la Compañia</label>';  
+                echo '<input type="text" class="form-control" name="sNombreCompania" value='.$oListadoProvedorPorId[0]['NombreCompania'].' placeholder="NOMBRE DE LA COMPAÑIA">';
 
-                echo '<input type="hidden" name="Id_Provedor" value='.$oListadoProvedorPorId[0]['Id_Provedor'].' >';
-                echo '<input type="text" name="sNombreCompania" value='.$oListadoProvedorPorId[0]['NombreCompania'].' placeholder="sNombreCompania">';
-                echo '<input type="text" name="sNombreContactoCompania" value='.$oListadoProvedorPorId[0]['NombreContactoCompania'].' placeholder="sNombreContactoCompania">';
-                echo '<input type="text" name="sDireccionCompania" value='.$oListadoProvedorPorId[0]['DireccionCompania'].' placeholder="sDireccionCompania">';
-                echo '<input type="text" name="sCiudad" value='.$oListadoProvedorPorId[0]['Ciudad'].' placeholder="sCiudad">';
-                echo '<input type="text" name="nCodigoPostal" value='.$oListadoProvedorPorId[0]['CodigoPostal'].' placeholder="sCodigoPostal">';
-                echo '<input type="text" name="sPais" value='.$oListadoProvedorPorId[0]['Pais'].' placeholder="sPais">';
-                 echo '<input type="text" name="sTelefonoCompania" value='.$oListadoProvedorPorId[0]['TelefonoCompania'].' placeholder="sTelefonoCompania">';
-                echo '<input type="text" name="sPaginaWeb" value='.$oListadoProvedorPorId[0]['PaginaWeb'].' placeholder="sPaginaWeb">';
+                echo '<br>';
+                echo '<label>Nombre del contacto en la Compañia</label>';  
+                echo '<input type="text" class="form-control" name="sNombreContactoCompania" value='.$oListadoProvedorPorId[0]['NombreContactoCompania'].' placeholder="NOMBRE(S)   PRIMER APELLIDO   SEGUNDO APELLIDO">';
+
+                echo '<br>';
+                echo '<label>Dirección de la Compañia</label>';  
+                echo '<input type="text" class="form-control" name="sDireccionCompania" value='.$oListadoProvedorPorId[0]['DireccionCompania'].' placeholder="CALLE   AVENIDA   NÚMERO EXTERIOR">';
+
+                echo '<br>';
+                echo '<label>Ciudad</label>';  
+                echo '<input type="text" class="form-control" name="sCiudad" value='.$oListadoProvedorPorId[0]['Ciudad'].' placeholder="CIUDAD">';
+
+                echo '<br>';
+                echo '<label>Codigo Postal</label>';  
+                echo '<input type="text" class="form-control" name="nCodigoPostal" value='.$oListadoProvedorPorId[0]['CodigoPostal'].' placeholder="CÓDIGO POSTAL">';
+
+                echo '<br>';
+                echo '<label>Pais</label>';  
+                echo '<input type="text" class="form-control" name="sPais" value='.$oListadoProvedorPorId[0]['Pais'].' placeholder="PAÍS">';
+
+                echo '<br>';
+                echo '<label>Número Telefónico</label>';  
+                echo '<input type="text" class="form-control" name="sTelefonoCompania" value='.$oListadoProvedorPorId[0]['TelefonoCompania'].' placeholder="NÚMERO TELEFÓNICO">';
+
+                echo '<br>';
+                echo '<label>Pagina Web</label>';  
+                echo '<input type="text" class="form-control" name="sPaginaWeb" value='.$oListadoProvedorPorId[0]['PaginaWeb'].' placeholder="WWW.PÁGINA WEB">';
 
 
-                echo '<input type="submit" name="modificarProvedor" value="Modificar Provedor">';
+echo '<br>';
+                echo '<input type="submit" class="btn btn-success" name="modificarProvedor" value="MODIFICAR PROVEDOR">';
+            echo'</div>';
+
             echo '</form>';
         }
 
@@ -59,19 +107,22 @@
         else{
     ?>
             <!-- Se muestra la tabla de Provedors-->
-            <table border="1">
+            <div class="table-bordered table-responsive">
+            <table class="table">
+                <thead class=" thead-light">
                 <tr>
-                    <td>Nombre de compañia</td>
-                    <td>Contacto</td>
-                    <td>Direccion</td>
-                    <td>Ciudad</td>
-                    <td>CodigoPostal</td>
-                    <td>Pais</td>
-                    <td>TelefonoCompania</td>
-                    <td>PaginaWeb</td>
+                    <th scope="COL">Nombre de compañia</th>
+                    <th scope="COL">Contacto</th>
+                    <th scope="COL">Direccion</th>
+                    <th scope="COL">Ciudad</th>
+                    <th scope="COL">Codigo Postal</th>
+                    <th scope="COL">Pais</th>
+                    <th scope="COL">TelefonoCompania</th>
+                    <th scope="COL">PaginaWeb</th>
 
-                    <td>Modificar</td>
-                    <td>Eliminar</td>
+                    <th scope="COL">Modificar</th>
+                    <th scope="COL">Eliminar</th>
+                </thead>
                 </tr>
     <?php
 
@@ -88,7 +139,7 @@
 
                 // Mostramos todas las columnas oobtenidas a través del objeto
                 echo '<tr>';
-                    echo '<td>'.$oListadoProvedor[$i]['NombreCompania'].'</td>';
+                    echo '<th scope="row">'.$oListadoProvedor[$i]['NombreCompania'].'</t>';
                     echo '<td>'.$oListadoProvedor[$i]['NombreContactoCompania'].'</td>';
                     echo '<td>'.$oListadoProvedor[$i]['DireccionCompania'].'</td>';
                     echo '<td>'.$oListadoProvedor[$i]['Ciudad'].'</td>';
@@ -97,8 +148,8 @@
                     echo '<td>'.$oListadoProvedor[$i]['TelefonoCompania'].'</td>';
                     echo '<td>'.$oListadoProvedor[$i]['PaginaWeb'].'</td>';
                     // Mostramos los botones Modificar y Eliminar los cuales entran en las condiciones
-                    echo '<td><input type="submit" name="modificarProvedor" value="Modificar" /></td>';
-                    echo '<td><input type="submit" name="eliminarProvedor" value="Eliminar" /></td>';
+                    echo '<td><input type="submit" class="btn btn-primary" name="modificarProvedor" value="Modificar" /></td>';
+                    echo '<td><input type="submit" class="btn btn-danger" name="eliminarProvedor" value="Eliminar" /></td>';
                 echo '</tr>';
                 echo '</form>';
             }

@@ -30,18 +30,18 @@
     <ul class="nav nav-pills nav-justified">
         <a class="nav-item nav-link" href="../index.php">INICIO</a>
         <a class="nav-item nav-link" href="servicio.php">REGISTRAR SERVICIO</a></li>
-        <a class="nav-item nav-link active" href="../Servicio/servicioListado.php">SERVICIOS</a></li>
-        <a class="nav-item nav-link" href="../Cliente/ClienteListado.php">CLIENTES</a></li>
+        <a class="nav-item nav-link" href="../Cliente/ClienteListado.php ">CLIENTES</a></li>
         <a class="nav-item nav-link" href="../Empleado/EmpleadoListado.php">EMPLEADOS</a></li>
         <a class="nav-item nav-link" href="../Producto/ProductoListado.php">PRODUCTOS</a></li>
         <a class="nav-item nav-link" href="../Provedor/ProvedorListado.php">PROVEDORES</a></li>
         <a class="nav-item nav-link" href="../PuntoAcceso/PuntoAccesoListado.php">PUNTOS DE ACCESO</a></li>
         <a class="nav-item nav-link" href="../Usuario/UsuarioListado.php">USUARIOS</a></li>
+        <a class="nav-item nav-link active" href="../Servicio/servicioListado.php">SERVICIOS</a></li>
         
     <br>    <br>    
     </ul>
     <br>    <br>    
-    <h3> <P> <EM>Servicios     WIIVER </EM></P></h3>
+    <h3> <P> <EM> WIIVER  Ingenieria Aplicada en Redes    SERVICIOS </EM></P></h3>
     <?php
         // Condicion que se ejecuta si se presiona el boton de Modificar
         if (isset($_POST['modificarServicio'])) {
@@ -53,8 +53,11 @@
                 
                 echo'<div class="form-group">';
                 echo'<div class="float col-xs-12 col-sm-6">';
+                
+                //TAMAÑO DE LAS ETIQUETAS
                 echo'<h5>';
-                echo'<p class="text-primary">';
+                //AGREGA COLOR A LA ETIQUETAS
+                echo'<p class="text">';
 
                     echo '<input type="hidden" name="Id_Servicio" value="'.$oListadoServicioPorId[0]['Id_Servicio'].'"" >';
                     
@@ -87,10 +90,11 @@
                  echo '<br>';
                     echo'<label>Precio del Paquete</label>';
                     echo '<input class="form-control" type="text" name="nPrecioPaquete" value="'.$oListadoServicioPorId[0]['PrecioPaquete'].'" placeholder="PRECIO DEL PAQUETE">';
+                 
                  echo '<br>';
-
                     echo'<label>Descrpción del Paquete</label>';
                     echo '<input class="form-control" type="text" name="sDescripcionPaquete" value="'.$oListadoServicioPorId[0]['DescripcionPaquete'].'"" placeholder="REALIZA UNA BREVE DESCRIPCIÓN DEL PAQUETE">';
+                 
                  echo '<br>';
                     echo'<label>Tipo de Servicio</label>';
                     echo '<select class="form-control" name="sTipoServicio">';
@@ -130,7 +134,7 @@
                     echo'</select>';
                  
                  echo '<br>';
-                    echo '<input class="btn btn-primary" type="submit" name="modificarServicio" value="Modificar Servicio">';
+                    echo '<input class="btn btn-success" type="submit" name="modificarServicio" value="MODIFICAR SERVICIO">';
 
                 echo'</div>';
 
@@ -148,9 +152,9 @@
         else{
     ?>
             <!-- Se muestra la tabla de clientes-->
-            <div class="table-bordered table-responsive">
-            <table class="table">
-                <thead>
+                <div class="table-bordered table-responsive">
+                <table class="table">
+                <thead class="thead-light">
                     <tr>
                         <th scope="col">EMPLEADO</th>
                         <th scope="col">CLIENTE</th>
@@ -166,9 +170,8 @@
                         <th scope="col">ESTADO DE SERVICIO</th>
                         <th scope="col">MODIFICAR</th>
                         <th scope="col">ELIMINAR</th>
+                    </thead>
                     </tr>
-                </thead>
-                <tbody>
     <?php
 
             //Se recorre el objeto $oListadoCliente que contiene todos los registros que se solicitaron a través del controller
@@ -197,8 +200,8 @@
                     echo '<td>'.$oListadoServicio[$i]['BajaServicio'].'</td>';
                     echo '<td>'.$oListadoServicio[$i]['EstadoServicio'].'</td>';
                     // Mostramos los botones Modificar y Eliminar los cuales entran en las condiciones
-                    echo '<td><input type="submit" name="modificarServicio" value="Modificar" /></td>';
-                    echo '<td><input type="submit" name="eliminarServicio" value="Eliminar" /></td>';
+                    echo '<td><input type="submit" class="btn btn-primary" name="modificarServicio" value="Modificar" /></td>';
+                    echo '<td><input type="submit" class="btn btn-danger" name="eliminarServicio" value="Eliminar" /></td>';
                 echo '</tr>';
                 echo '</form>';
             }

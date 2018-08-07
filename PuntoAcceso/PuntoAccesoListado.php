@@ -11,17 +11,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>PuntoAcceso</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Lista de Puntos de Acceso</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Librería CDN de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
 
-     <ul class="nav nav-tabs">
-        <li class="nav-item"><a  class="nav-link" href="../index.php">Inicio</a></li>
-        <li class="nav-item"><a  class="nav-link" href="PuntoAcceso.php">Registrar Punto de Acceso</a></li>
+     <div class="container-fluid">
+    
+    <ul class="nav nav-pills nav-justified">
+        <a class="nav-item nav-link" href="../index.php">INICIO</a>
+        <a class="nav-item nav-link" href="PuntoAcceso.php">REGISTRAR PUNTO DE ACCESO</a></li>
+        <a class="nav-item nav-link" href="../Cliente/ClienteListado.php ">CLIENTES</a></li>
+        <a class="nav-item nav-link" href="../Empleado/EmpleadoListado.php">EMPLEADOS</a></li>
+        <a class="nav-item nav-link" href="../Producto/ProductoListado.php">PRODUCTOS</a></li>
+        <a class="nav-item nav-link" href="../Provedor/ProvedorListado.php">PROVEDORES</a></li>
+        <a class="nav-item nav-link active" href="../PuntoAcceso/PuntoAccesoListado.php">PUNTOS DE ACCESO</a></li>
+        <a class="nav-item nav-link" href="../Usuario/UsuarioListado.php">USUARIOS</a></li>
+        <a class="nav-item nav-link" href="../Servicio/servicioListado.php">SERVICIOS</a></li>
+
+    <br>    <br>    
     </ul>
+    <br>    <br>    
+    <h3> <P> <EM>WIIVER Ingeniera Aplicada en Redes       PUNTOS DE ACCESO </EM></P></h3>
 
     <?php
         // Condicion que se ejecuta si se presiona el boton de Modificar
@@ -31,18 +47,41 @@
             $oListadoPuntoAccesoPorId = $oPuntoAccesoController->obtenerListadoPuntoAccesoPorId($nId_PuntoAcceso);
 
             echo '<form action="PuntoAccesoRegistro.php" method="post">';
-                echo '</select>';
+                echo'<div class="form-group">';
+                echo'<div class="float col-xs-12 col-sm-6">';
+                //TAMAÑO DE LAS ETIQUETAS
+                echo'<h5>';
+                //AGREGA COLOR A LA ETIQUETAS
+                echo'<p class="text">';
 
-                echo '<input type="hidden" name="Id_PuntoAcceso" value='.$oListadoPuntoAccesoPorId[0]['Id_PuntoAcceso'].' >';
-                echo '<input type="text" name="sNombrePuntoAcceso" value='.$oListadoPuntoAccesoPorId[0]['NombrePuntoAcceso'].' placeholder="sNombrePuntoAcceso">';
-                echo '<input type="text" name="sUbicacion" value='.$oListadoPuntoAccesoPorId[0]['Ubicacion'].' placeholder="sUbicacion">';
-                echo '<input type="text" name="sNombreContacto" value='.$oListadoPuntoAccesoPorId[0]['NombreContacto'].' placeholder="sNombreContacto">';
-                echo '<input type="text" name="sTelefonoPuntoAcceso" value='.$oListadoPuntoAccesoPorId[0]['TelefonoPuntoAcceso'].' placeholder="sTelefonoPuntoAcceso">';
-                echo '<input type="text" name="sDireccionMac" value='.$oListadoPuntoAccesoPorId[0]['DireccionMac'].' placeholder="sDireccionMac">';
-                echo '<input type="text" name="sContrasenaWifi" value='.$oListadoPuntoAccesoPorId[0]['ContrasenaWifi'].' placeholder="sContrasenaWifi">';
+                echo '<input type="hidden" class="form-group" name="Id_PuntoAcceso" value='.$oListadoPuntoAccesoPorId[0]['Id_PuntoAcceso'].' >';
+                
+                echo '<br>';
+                echo '<label>Nombre del Punto de Acceso</label>';
+                echo '<input type="text" class="form-control" name="sNombrePuntoAcceso" value="'.$oListadoPuntoAccesoPorId[0]['NombrePuntoAcceso'].'" placeholder="NOMBRE DEL PUNTO DE ACCESO">';
+                
+                echo '<br>';
+                echo '<label>Ubicación</label>';
+                echo '<input type="text" class="form-control" name="sUbicacion" value="'.$oListadoPuntoAccesoPorId[0]['Ubicacion'].'" placeholder="UBICACIÓN">';
+                
+                echo '<br>';
+                echo '<label>Nombre de Contacto</label>';
+                echo '<input type="text" class="form-control" name="sNombreContacto" value="'.$oListadoPuntoAccesoPorId[0]['NombreContacto'].'" placeholder="NOMBRE DE CONTACTO">';
+                
+                echo '<br>';
+                echo '<label>Número Telefónico</label>';
+                echo '<input type="text" class="form-control" name="sTelefonoPuntoAcceso" value="'.$oListadoPuntoAccesoPorId[0]['TelefonoPuntoAcceso'].'" placeholder="NÚMERO TELEFÓNICO">';
+                
+                echo '<br>';
+                echo '<label>Dirección MAC</label>';
+                echo '<input type="text" class="form-control" name="sDireccionMac" value="'.$oListadoPuntoAccesoPorId[0]['DireccionMac'].'" placeholder="00:00:00:00:00:00:00:00">';
+                
+                echo '<br>';
+                echo '<label>Contraseña WIFI</label>';
+                echo '<input type="text" class="form-control" name="sContrasenaWifi" value="'.$oListadoPuntoAccesoPorId[0]['ContrasenaWifi'].'" placeholder="CONTRASEÑA WIFI">';
 
-
-                echo '<input type="submit" name="modificarPuntoAcceso" value="Modificar PuntoAcceso">';
+                echo '<br>';
+                echo '<input type="submit" name="modificarPuntoAcceso"  class="btn btn-success" value="MODIFICAR PUNTO DE ACCESO">';
             echo '</form>';
         }
 
@@ -57,16 +96,19 @@
         else{
     ?>
             <!-- Se muestra la tabla de PuntoAccesos-->
-            <table border="1">
+            <div class="table-bordered table-responsive">
+            <table class="table">
+                <thead class="thead-light">
                 <tr>
-                    <td>Nombre del PuntoAcceso</td>
-                    <td>Ubicacion</td>
-                    <td>Contacto</td>
-                    <td>Tlefono</td>
-                    <td>DireccionMac</td>
-                    <td>ContrasenaWifi</td>
-                    <td>Modificar</td>
-                    <td>Eliminar</td>
+                    <th scope="col">NOMBRE DEL PUNTO DE ACCESO</th>
+                    <th scope="col">UUBICACIÓN</th>
+                    <th scope="col">CONTACTO</th>
+                    <th scope="col">TELÉFONO</th>
+                    <th scope="col">DIRECCIÓN MAC</th>
+                    <th scope="col">CONTRASEÑA WIFI</th>
+                    <th scope="col">MODIFICAR</th>
+                    <th scope="col">ELIMINAR</th>
+                <thead>
                 </tr>
     <?php
 
@@ -83,15 +125,15 @@
 
                 // Mostramos todas las columnas oobtenidas a través del objeto
                 echo '<tr>';
-                    echo '<td>'.$oListadoPuntoAcceso[$i]['NombrePuntoAcceso'].'</td>';
+                    echo '<th scope="col">'.$oListadoPuntoAcceso[$i]['NombrePuntoAcceso'].'</th>';
                     echo '<td>'.$oListadoPuntoAcceso[$i]['Ubicacion'].'</td>';
                     echo '<td>'.$oListadoPuntoAcceso[$i]['NombreContacto'].'</td>';
                     echo '<td>'.$oListadoPuntoAcceso[$i]['TelefonoPuntoAcceso'].'</td>';
                     echo '<td>'.$oListadoPuntoAcceso[$i]['DireccionMac'].'</td>';
                     echo '<td>'.$oListadoPuntoAcceso[$i]['ContrasenaWifi'].'</td>';
                     // Mostramos los botones Modificar y Eliminar los cuales entran en las condiciones
-                    echo '<td><input type="submit" name="modificarPuntoAcceso" value="Modificar" /></td>';
-                    echo '<td><input type="submit" name="eliminarPuntoAcceso" value="Eliminar" /></td>';
+                    echo '<td><input type="submit" class="bnt btn-primary" name="modificarPuntoAcceso" value="Modificar" /></td>';
+                    echo '<td><input type="submit" class="bnt btn-danger" name="eliminarPuntoAcceso" value="Eliminar" /></td>';
                 echo '</tr>';
                 echo '</form>';
             }

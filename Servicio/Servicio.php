@@ -107,7 +107,7 @@
 	<input class="form-control" type="text" name="sEstadoServicio" placeholder="ACTIVO o INACTIVO">
 	
 	<br>	
-	<input class="btn btn-primary" type="submit" name="RegistrarServicio" value="Registrar Servicio">
+	<input class="btn btn-primary" type="submit" name="RegistrarServicio" value="REGISTRAR SERVICIO">
 </FORM>
 </body>
 </html>

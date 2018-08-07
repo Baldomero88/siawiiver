@@ -38,7 +38,7 @@
         <br>    <br>    
         </ul>
         <br>    <br>    
-        <h3> <P> <EM> Clientes   WIIVER </EM></P></h3>
+        <h3> <P> <EM>WIIVER Ingenieria Aplicada en Redes CLIENTES </EM></P></h3>
     <?php
         // Condicion que se ejecuta si se presiona el boton de Modificar
         if (isset($_POST['modificarCliente'])) {
@@ -88,7 +88,7 @@
                 echo '<input type="text" class="form-control" name="sReferencia" value="'.$oListadoClientePorId[0]['Referencia'].'" placeholder="REFERENCIA FÍSICA">';
             
                 echo '<br>';           
-                echo '<input class="btn btn-primary" type="submit" name="modificarCliente" value="Modificar Cliente">';
+                echo '<input class="btn btn-success" type="submit" name="modificarCliente" value="MODIFICAR CLIENTE">';
                 echo '</form>';
         }
 
@@ -118,7 +118,8 @@
                     
                     <th scope="col">MODIFICAR</th>
                     <th scope="col">ELIMINAR</th>
-                </tr>
+                    </thead>
+                    </tr>
     <?php
 
             //Se recorre el objeto $oListadoCliente que contiene todos los registros que se solicitaron a través del controller
@@ -134,7 +135,7 @@
 
                 // Mostramos todas las columnas oobtenidas a través del objeto
                 echo '<tr>';
-                    echo '<th scope="row">'.$oListadoCliente[$i]['NombrePuntoAcceso'].'</td>';
+                    echo '<th scope="row">'.$oListadoCliente[$i]['NombrePuntoAcceso'].'</th>';
                     echo '<td>'.$oListadoCliente[$i]['NombreCliente'].'</td>';
                     echo '<td>'.$oListadoCliente[$i]['DireccionCliente'].'</td>';
                     echo '<td>'.$oListadoCliente[$i]['Localidad'].'</td>';
@@ -142,12 +143,12 @@
                     echo '<td>'.$oListadoCliente[$i]['TelefonoCliente'].'</td>';
                     echo '<td>'.$oListadoCliente[$i]['Referencia'].'</td>';
                     // Mostramos los botones Modificar y Eliminar los cuales entran en las condiciones
-                    echo '<td><input type="submit" name="modificarCliente" value="Modificar" /></td>';
-                    echo '<td><input type="submit" name="eliminarCliente" value="Eliminar" /></td>';
+                    echo '<td><input type="submit" class="btn btn-primary" name="modificarCliente" value="Modificar" /></td>';
+                    echo '<td><input type="submit" class="btn btn-danger" name="eliminarCliente" value="Eliminar" /></td>';
                 echo '</tr>';
                 echo '</form>';
             }
-            echo '</table>';
+            echo '</tbody></table></div>';
         }
     ?>
 </body>
