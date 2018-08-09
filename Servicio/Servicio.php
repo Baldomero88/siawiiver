@@ -31,6 +31,7 @@
         <a class="nav-item nav-link" href="../Provedor/ProvedorListado.php">PROVEDORES</a></li>
         <a class="nav-item nav-link" href="../PuntoAcceso/PuntoAccesoListado.php">PUNTOS DE ACCESO</a></li>
         <a class="nav-item nav-link" href="../Usuario/UsuarioListado.php">USUARIOS</a></li>
+        <a class="nav-item nav-link" href="../Cobranza/CobranzaListado.php">COBRANZA</a> </li>
 
     <br>	<br>	
 

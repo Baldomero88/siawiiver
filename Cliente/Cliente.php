@@ -29,6 +29,7 @@
         <a class="nav-item nav-link" href="../PuntoAcceso/PuntoAccesoListado.php">PUNTOS DE ACCESO</a></li>
         <a class="nav-item nav-link" href="../Usuario/UsuarioListado.php">USUARIOS</a></li>
         <a class="nav-item nav-link" href="../Servicio/servicioListado.php">SERVICIOS</a></li>
+        <a  class="nav-item nav-link" href="../Cobranza/CobranzaListado.php">COBRANZA</a> </li>
 
     <br>	<br>	
 
@@ -48,7 +49,6 @@
 			}
 		?>
 	</select>
-
 	<br>	
 	<label>	Nombre del Cliente</label>
 	<input type="text" class="form-control" name="sNombreCliente" placeholder="NOMBRE(S), PRIMER APELLIDO, SEGUNDO APELLIDO">

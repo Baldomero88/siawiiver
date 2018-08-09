@@ -25,6 +25,11 @@
 			<a  class="nav-item nav-link" href="Usuario/UsuarioListado.php">USUARIOS</a> </li>
 
 			<a  class="nav-item nav-link" href="Servicio/ServicioListado.php">SERVICIOS</a> </li>
+
+			<a  class="nav-item nav-link" href="Cobranza/CobranzaListado.php">COBRANZA</a> </li>
+
+
+
 		</ul>
 	</div>
 </body>

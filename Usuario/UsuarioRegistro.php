@@ -5,7 +5,7 @@ require_once('../Conexion/cConexion.php');
 require_once('cUsuarioModelo.php');
 
 
-$nId_Empleado = $_POST['Id_Empleado'];
+$nId_Empleado = $_POST['nId_Empleado'];
 $sRol = $_POST['sRol'];
 $sNombreUsuario = $_POST['sNombreUsuario'];
 $sContrasena = $_POST['sContrasena'];
@@ -24,6 +24,13 @@ $oUsuarioEntidad->setNombreUsuario($sNombreUsuario);
 $oUsuarioEntidad->setContrasena($sContrasena);
 
 $oUsuarioModelo = New cUsuarioModelo($dbLink, $oUsuarioEntidad);
-$oUsuarioModelo->RegistrarUsuario();
 
+if (isset($_POST['RegistrarUsuario'])) {
+    $oUsuarioModelo->RegistrarUsuario();
+}
+elseif(isset($_POST['modificarUsuario'])) {
+    $nId_Usuario = $_POST['Id_Usuario'];
+    $oUsuarioEntidad->setId_Usuario($nId_Usuario);
+    $oUsuarioModelo->ModificarUsuario();
+}
 ?>

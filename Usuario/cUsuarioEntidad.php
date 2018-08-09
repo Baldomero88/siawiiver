@@ -27,6 +27,7 @@ public function getId_Empleado(){
 	return $this->_nId_Empleado;
 
 }
+
 public function setRol($sRol){
 	$this->_sRol = $sRol;
 

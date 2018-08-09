@@ -29,7 +29,7 @@
     
     <ul class="nav nav-pills nav-justified">
         <a class="nav-item nav-link" href="../index.php">INICIO</a>
-        <a class="nav-item nav-link" href="servicio.php">REGISTRAR SERVICIO</a></li>
+        <a class="nav-item nav-link" href="  servicio.php">REGISTRAR SERVICIO</a></li>
         <a class="nav-item nav-link" href="../Cliente/ClienteListado.php ">CLIENTES</a></li>
         <a class="nav-item nav-link" href="../Empleado/EmpleadoListado.php">EMPLEADOS</a></li>
         <a class="nav-item nav-link" href="../Producto/ProductoListado.php">PRODUCTOS</a></li>
@@ -37,6 +37,7 @@
         <a class="nav-item nav-link" href="../PuntoAcceso/PuntoAccesoListado.php">PUNTOS DE ACCESO</a></li>
         <a class="nav-item nav-link" href="../Usuario/UsuarioListado.php">USUARIOS</a></li>
         <a class="nav-item nav-link active" href="../Servicio/servicioListado.php">SERVICIOS</a></li>
+        <a class="nav-item nav-link" href="../Cobranza/CobranzaListado.php">COBRANZA</a> </li>
         
     <br>    <br>    
     </ul>

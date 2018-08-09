@@ -27,9 +27,9 @@ public function RegistrarUsuario(){
 }
 
 public function obtenerListadoUsuario(){
-		$sql ="SELECT Rol, Id_Usuario, NombreUsuario, Contrasena
-				FROM Empleado AS PRO, Usuario AS PR
-				WHERE PRO.Id_Empleado = PR.Id_Empleado";
+		$sql ="SELECT NombreEmpleado, Id_Usuario, Rol, NombreUsuario, Contrasena
+				FROM Empleado AS EM, Usuario AS US
+				WHERE EM.Id_Empleado = US.Id_Empleado";
 		$result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error($this->_dblink));
 		if ($result->num_rows === 0){exit; return false;}
 
@@ -43,9 +43,9 @@ public function obtenerListadoUsuario(){
 }
 
 public function obtenerListadoUsuarioPorId($nIdUsuario){
-		$sql ="SELECT Rol, Id_Usuario, NombreUsuario, Contrasena
-				FROM Empleado AS PRO, Usuario AS PR
-				WHERE PRO.Id_Empleado = PR.Id_Empleado
+		$sql ="SELECT NombreEmpleado, Id_Usuario, Rol, NombreUsuario, Contrasena
+				FROM Empleado AS EM, Usuario AS US
+				WHERE EM.Id_Empleado = US.Id_Empleado
 				AND Id_Usuario = $nIdUsuario";
 		$result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error($this->_dblink));
 		if ($result->num_rows === 0){exit; return false;}
@@ -70,7 +70,7 @@ public function obtenerListadoUsuarioPorId($nIdUsuario){
 
 		$sql =" UPDATE Usuario
 				SET	Id_Empleado = '$nId_Empleado',
-				    Rol = '$sRol'
+				    Rol = '$sRol',
 					NombreUsuario = '$sNombreUsuario',
 					Contrasena = '$nContrasena',
 				WHERE Id_Usuario = $nId_Usuario";

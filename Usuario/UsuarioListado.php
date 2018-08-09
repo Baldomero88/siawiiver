@@ -12,17 +12,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Usuario</title>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Lista de Usuarios</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Librería CDN de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 </head>
 <body>
+<div class="container-fluid">
 
-     <ul class="nav nav-tabs">
-        <li class="nav-item"><a  class="nav-link" href="../index.php">Inicio</a></li>
-        <li class="nav-item"><a  class="nav-link" href="Usuario.php">Registrar Usuario</a></li>
-    </ul>
+     <ul class="nav nav-pills nav-justified">
+        <a class="nav-item nav-link" href="../index.php">INICIO</a></li>
+        <a class="nav-item nav-link" href=" Usuario.php">REGISTRAR USUARIO</a></li>
+        <a class="nav-item nav-link" href="../Cliente/ClienteListado.php ">CLIENTES</a></li>
+        <a class="nav-item nav-link" href="../Empleado/EmpleadoListado.php">EMPLEADOS</a></li>
+        <a class="nav-item nav-link" href="../Producto/ProductoListado.php">PRODUCTOS</a></li>
+        <a class="nav-item nav-link" href="../Provedor/ProvedorListado.php">PROVEDORES</a></li>
+        <a class="nav-item nav-link" href="../PuntoAcceso/PuntoAccesoListado.php">PUNTOS DE ACCESO</a></li>
+        <a class="nav-item nav-link active" href="../Usuario/UsuarioListado.php">USUARIOS</a></li>
+        <a class="nav-item nav-link" href="../Servicio/servicioListado.php">SERVICIOS</a></li>
+        <a class="nav-item nav-link" href="../Cobranza/CobranzaListado.php">COBRANZA</a> </li>
+        
+        <br>    <br>    
+        </ul>
+        <br>    <br>    
+        <h3> <P> <EM>WIIVER Ingenieria Aplicada en Redes CLIENTES </EM></P></h3>
 
     <?php
         // Condicion que se ejecuta si se presiona el boton de Modificar
@@ -32,16 +49,33 @@
             $oListadoUsuarioPorId = $oUsuarioController->obtenerListadoUsuarioPorId($nId_Usuario);
 
             echo '<form action="UsuarioRegistro.php" method="post">';
-                echo '<select name="nId_Empleado">';
-                for ($i = 0; $i < count($oEmpleadoUsuario); $i++) {
-                    echo '<option value='.$oEmpleadoUsuario[$i]['Id_Empleado'].'>'.$oEmpleadoUsuario[$i]['NombreCompania'].'</option>';
-                }
-                echo '</select>';
 
-                echo '<input type="hidden" name="Id_Usuario" value='.$oListadoUsuarioPorId[0]['Id_Usuario'].' >';
-                echo '<input type="text" name="sRol" value='.$oListadoUsuarioPorId[0]['Rol'].' placeholder="sRol">';
-                echo '<input type="text" name="sNombreUsuario" value='.$oListadoUsuarioPorId[0]['NombreUsuario'].' placeholder="sNombreUsuario">';
-                echo '<input type="text" name="sContrasena" value='.$oListadoUsuarioPorId[0]['Contrasena'].' placeholder="sContrasena">';
+            echo '<div class="form-group">';
+            echo '<div class="float col-xs-12 col-sm-6">';
+            echo '<h5>';
+            echo '<label>Nombre del Empleado</label>';
+            echo '<br>';
+                echo '<select class="form-control" name="nId_Empleado">';
+                for ($i = 0; $i < count($oEmpleadoUsuario); $i++) {
+                    echo '<option value='.$oEmpleadoUsuario[$i]['Id_Empleado'].'>'.$oEmpleadoUsuario[$i]['NombreEmpleado'].'</option>';
+                }
+                echo '<br>';
+                echo '</select>';
+                echo '<input type="hidden" class="form-control" name="Id_Usuario" value="'.$oListadoUsuarioPorId[0]['Id_Usuario'].'" >';
+
+                echo'<br>';
+                echo '<label>Rol</label>';
+                echo '<input type="text" class="form-control" name="sRol" value='.$oListadoUsuarioPorId[0]['Rol'].' placeholder="sRol">';
+
+                echo'<br>';
+                echo '<label>Nombre de Usuario</label>';
+                echo '<input type="text" class="form-control" name="sNombreUsuario" value='.$oListadoUsuarioPorId[0]['NombreUsuario'].' placeholder="sNombreUsuario">';
+
+                echo'<br>';
+                echo '<label>Contraseña</label>';
+                echo '<input type="text" class="form-control" name="sContrasena" value='.$oListadoUsuarioPorId[0]['Contrasena'].' placeholder="sContrasena">';
+
+                echo '<br>';
                 echo '<input type="submit" name="modificarUsuario" value="Modificar Usuario">';
             echo '</form>';
         }
@@ -57,15 +91,19 @@
         else{
     ?>
             <!-- Se muestra la tabla de Usuarios-->
-            <table border="1">
-                <tr>
-                    <td>Rol</td>
-                    <td>Nombre del Usuario</td>
-                    <td>Contrasena</td>
-                
-                    <td>Modificar</td>
-                    <td>Eliminar</td>
+            <div class="table-bordered table-responsive">
+            <table class="table">
 
+                <thead class="thead-light">
+                    <tr>
+                    <th scope="col">NOMBRE DEL EMPLEADO</th>
+                    <th scope="col">ROL</th>
+                    <th scope="col">NOMBRE DEL USUARIO</th>
+                    <th scope="col">CONTRASEÑA</th>
+                
+                    <th scope="col">MODIFICAR</th>
+                    <th scope="col">ELIMINAR</th>
+                </thead>
                 </tr>
     <?php
 
@@ -82,16 +120,17 @@
 
                 // Mostramos todas las columnas oobtenidas a través del objeto
                 echo '<tr>';
+                    echo '<th scope="row">'.$oListadoUsuario[$i]['NombreEmpleado'].'</th>';
                     echo '<td>'.$oListadoUsuario[$i]['Rol'].'</td>';
                     echo '<td>'.$oListadoUsuario[$i]['NombreUsuario'].'</td>';
                     echo '<td>'.$oListadoUsuario[$i]['Contrasena'].'</td>';
                     // Mostramos los botones Modificar y Eliminar los cuales entran en las condiciones
-                    echo '<td><input type="submit" name="modificarUsuario" value="Modificar" /></td>';
-                    echo '<td><input type="submit" name="eliminarUsuario" value="Eliminar" /></td>';
+                    echo '<td><input type="submit" class="btn btn-primary" name="modificarUsuario" value="Modificar" /></td>';
+                    echo '<td><input type="submit" class="btn btn-danger" name="eliminarUsuario" value="Eliminar" /></td>';
                 echo '</tr>';
                 echo '</form>';
             }
-            echo '</table>';
+            echo '</tbody></table></div>';
         }
     ?>
 </body>

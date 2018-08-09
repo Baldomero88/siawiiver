@@ -34,6 +34,7 @@
         <a class="nav-item nav-link" href="../PuntoAcceso/PuntoAccesoListado.php">PUNTOS DE ACCESO</a></li>
         <a class="nav-item nav-link" href="../Usuario/UsuarioListado.php">USUARIOS</a></li>
         <a class="nav-item nav-link" href="../Servicio/servicioListado.php">SERVICIOS</a></li>
+        <a  class="nav-item nav-link" href="../Cobranza/CobranzaListado.php">COBRANZA</a> </li>
         
         <br>    <br>    
         </ul>
@@ -49,10 +50,11 @@
             echo '<form action="ClienteRegistro.php" method="post">';
 
             echo '<div class="form-group">';
-            echo'<div class="float col-xs-12 col-sm-6">';
-            echo'<h5>';
+            echo '<div class="float col-xs-12 col-sm-6">';
+            echo '<h5>';
             echo '<label>Nombre del Punto de Acceso</label>';
-            echo'<br>';
+            echo '<br>';
+            
                 echo '<select class="form-control" name="nId_PuntoAcceso">';
                 for ($i = 0; $i < count($oPuntoAccesoCliente); $i++) {
                     echo '<option value='.$oPuntoAccesoCliente[$i]['Id_PuntoAcceso'].'>'.$oPuntoAccesoCliente[$i]['NombrePuntoAcceso'].'</option>';
