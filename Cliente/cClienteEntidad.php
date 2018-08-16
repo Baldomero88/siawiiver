@@ -1,5 +1,4 @@
-<?php 
-
+<?php
 
 class cClienteEntidad{
 
@@ -88,6 +87,5 @@ public function getReferencia(){
 }
 
 }
-
 
 ?>

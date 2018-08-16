@@ -1,5 +1,7 @@
 <?php 
-
+session_start();
+if ($_SESSION['rol'] == 'ADMINISTRADOR' || $_SESSION['rol'] == 'COBRANZA' || $_SESSION['rol'] == 'TECNICO') {
+    
 require_once('cClienteEntidad.php');
 require_once('../Conexion/cConexion.php');
 require_once('cClienteModelo.php');
@@ -38,5 +40,5 @@ elseif(isset($_POST['modificarCliente'])) {
     $oClienteModelo->ModificarCliente();
 }
 
-
+}
 ?>

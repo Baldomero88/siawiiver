@@ -22,8 +22,7 @@ protected $_oCobranzaModelo;
    
     }
     public function ObtenerServicioCobranza(){
-
-        return $this->_oServicioModelo->ObtenerServicioCobranza();
+        return $this->_oServicioModelo->obtenerListadoServicio();
      }
        public function obtenerListadoCobranza(){
         return $this->_oCobranzaModelo->obtenerListadoCobranza();
@@ -32,7 +31,11 @@ protected $_oCobranzaModelo;
     public function obtenerListadoCobranzaPorId($nIdCobranza){
         return $this->_oCobranzaModelo->obtenerListadoCobranzaPorId($nIdCobranza);
     }
-
+    
+    public function obtenerListadoPagosVencidos(){
+        return $this->_oCobranzaModelo->obtenerListadoPagosVencidos();
+    }
+    
     public function eliminarCobranzaPorId($nIdCobranza){
         return $this->_oCobranzaModelo->eliminarCobranzaPorId($nIdCobranza);
     }

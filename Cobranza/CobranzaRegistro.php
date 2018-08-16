@@ -6,8 +6,10 @@ require_once('cCobranzaModelo.php');
 
 
 $nId_Servicio = $_POST['nId_Servicio'];
-$sTipoPaquete = $_POST['sTipoPaquete'];
 $sMesPago = $_POST['sMesPago'];
+$nAnoPago = $_POST['nAnoPago'];
+$nServicio = $_POST['nServicio'];
+$nOtrosCargos = $_POST['nOtrosCargos'];
 $sEstadoPago = $_POST['sEstadoPago'];
 
 #se crea el objeto  oCobranzaEntidad 
@@ -18,8 +20,10 @@ $dbLink = $oConectar->Conectar();
 
 # el objeto llama al metodo para asignar parametro
 $oCobranzaEntidad->setId_Servicio($nId_Servicio);
-$oCobranzaEntidad->setTipoPaquete($sTipoPaquete);
 $oCobranzaEntidad->setMesPago($sMesPago);
+$oCobranzaEntidad->setAnoPago($nAnoPago);
+$oCobranzaEntidad->setServicio($nServicio);
+$oCobranzaEntidad->setOtrosCargos($nOtrosCargos);
 $oCobranzaEntidad->setEstadoPago($sEstadoPago);
 
 $oCobranzaModelo = New cCobranzaModelo($dbLink, $oCobranzaEntidad);

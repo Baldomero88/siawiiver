@@ -1,4 +1,6 @@
 <?php 
+session_start();
+if ($_SESSION['rol'] == 'ADMINISTRADOR' || $_SESSION['rol'] == 'COBRANZA' || $_SESSION['rol'] == 'TECNICO') {
 	require_once('cClienteController.php');
 	$oClienteController = new cClienteController;
 	$oPuntoAccesoCliente = $oClienteController->ObtenerPuntoAccesoCliente();
@@ -34,6 +36,9 @@
     <br>	<br>	
 
     </ul>
+    <div class="alert alert-primary" role="alert">
+        <?php echo 'USUARIO: '.$_SESSION['usuario'].'<br> ROL: '.$_SESSION['rol'];?>    
+    </div>
 	</div>
 
 <form action="ClienteRegistro.php" method="post">
@@ -78,3 +83,6 @@
 </form>
 </body>
 </html>
+<?php
+}
+?>

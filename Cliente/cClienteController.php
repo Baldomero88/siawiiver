@@ -1,5 +1,5 @@
 <?php
-
+    
 require_once('../Conexion/cConexion.php');
 require_once('../PuntoAcceso/cPuntoAccesoModelo.php');
 require_once('../PuntoAcceso/cPuntoAccesoEntidad.php');
