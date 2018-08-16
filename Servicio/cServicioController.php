@@ -43,7 +43,15 @@ protected $_oServicioModelo;
     public function obtenerListadoServicioPorId($nIdServicio){
         return $this->_oServicioModelo->obtenerListadoServicioPorId($nIdServicio);
     }
-
+    
+    public function obtenerProductoServicio(){
+        return $this->_oServicioModelo->obtenerProductoServicio();
+    }
+    
+    public function RegistrarDetalleServicio($nIdServicio, $aIdProducto, $aCantidadProducto) {
+        return $this->_oServicioModelo->RegistrarDetalleServicio($nIdServicio, $aIdProducto, $aCantidadProducto);
+    }
+    
     public function eliminarServicioPorId($nIdServicio){
         return $this->_oServicioModelo->eliminarServicioPorId($nIdServicio);
     }

@@ -15,8 +15,6 @@ $nPrecioServicio = $_POST['nPrecioServicio'];
 $sDescripcionServicio = $_POST['sDescripcionServicio'];
 $sFormaPago = $_POST['sFormaPago'];
 $sFechaServicio = $_POST['sFechaServicio'];
-$sBajaServicio = $_POST['sBajaServicio'];
-$sEstadoServicio = $_POST['sEstadoServicio'];
 
 #se crea el objeto  oServicioEntidad 
 $oServicioEntidad = new cServicioEntidad; 
@@ -34,15 +32,13 @@ $oServicioEntidad->setPrecioServicio($nPrecioServicio);
 $oServicioEntidad->setDescripcionServicio($sDescripcionServicio);
 $oServicioEntidad->setFormaPago($sFormaPago);
 $oServicioEntidad->setFechaServicio($sFechaServicio);
-$oServicioEntidad->setBajaServicio($sBajaServicio);
-$oServicioEntidad->setEstadoServicio($sEstadoServicio);
-
-
 
 
 $oServicioModelo = New cServicioModelo($dbLink, $oServicioEntidad);
 if (isset($_POST['RegistrarServicio'])) {
     $oServicioModelo->RegistrarServicio();
+    header("Location: ProductoServicio.php");
+    die();
 }
 elseif(isset($_POST['modificarServicio'])) {
     $nId_Servicio = $_POST['Id_Servicio'];

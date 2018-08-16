@@ -4,6 +4,10 @@ require_once('../Conexion/cConexion.php');
 require_once('../Empleado/cEmpleadoModelo.php');
 require_once('../Empleado/cEmpleadoEntidad.php');
 require_once('../Usuario/cUsuarioModelo.php');
+//require_once $_SERVER['DOCUMENT_ROOT'] . '/Conexion/cConexion.php';
+//require_once $_SERVER['DOCUMENT_ROOT'] . '/Empleado/cEmpleadoModelo.php';
+//require_once $_SERVER['DOCUMENT_ROOT'] . '/Empleado/cEmpleadoEntidad.php';
+//require_once $_SERVER['DOCUMENT_ROOT'] . '/Usuario/cUsuarioModelo.php';
 
 class cUsuarioController{
 
@@ -35,6 +39,10 @@ protected $_oUsuarioModelo;
 
     public function eliminarUsuarioPorId($nIdUsuario){
         return $this->_oUsuarioModelo->eliminarUsuarioPorId($nIdUsuario);
+    }
+    
+    public function iniciarSesion($sUsuario, $sPassword){
+        return $this->_oUsuarioModelo->iniciarSesion($sUsuario, $sPassword);
     }
 }
 ?>

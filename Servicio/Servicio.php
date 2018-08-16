@@ -69,7 +69,11 @@
 
 	<br>	
 	<label>	Tipo de Paquete</label>
-	<input class="form-control" type="text" name="sTipoPaquete" placeholder="BASICO INTERMEDIO PREMIUM">
+        <select class="form-control" name="sTipoPaquete">
+            <option value="BASICO">BASICO</option>
+            <option value="INTERMEDIO">INTERMEDIO</option>
+            <option value="PREMIUM">PREMIUM</option>
+        </select>
 	
 	<br>	
 	<label>	Precio del Paquete</label>
@@ -81,8 +85,12 @@
 	
 	<br>
 	<label>	Tipo de Servicio</label>
-	<input  class="form-control" type="text" name="sTipoServicio" placeholder="INSTALACIÓN   MANTENIMIENTO    VENTA">
-	
+        <select class="form-control" name="sTipoServicio">
+            <option value="INSTALACION">INSTALACION</option>
+            <option value="MANTENIMIENTO">MANTENIMIENTO</option>
+            <option value="VENTA">VENTA</option>
+        </select>
+        
 	<br>	
 	<label>	Precio del Servicio</label>
 	<input class="form-control" type="text" name="nPrecioServicio" placeholder="COSTO DEL SERVICIO">
@@ -93,20 +101,23 @@
 	
 	<br>	
 	<label>	Forma de Pago</label>
-	<input class="form-control" type="text" name="sFormaPago" placeholder="EFECTIVO o CUENTA BANCARIA">
-	
+        <select class="form-control" name="sFormaPago">
+            <option value="EFECTIVO">EFECTIVO</option>
+            <option value="CUENTA">CUENTA BANCARIA</option>
+        </select>
+        
 	<br>	
 	<label>	Fecha del Servicio</label>
 	<input class="form-control" type="date" name="sFechaServicio" placeholder="FECHA DEL SERVICIO">
 	
-	<br>	
+	<!--<br>	
 	<label>	Fecha de baja del Servicio</label>
 	<input class="form-control" type="date" name="sBajaServicio" placeholder="BAJA DE SERVICIO">
 	
 	<br>	
 	<label>	Estado del Servicio</label>
 	<input class="form-control" type="text" name="sEstadoServicio" placeholder="ACTIVO o INACTIVO">
-	
+	-->
 	<br>	
 	<input class="btn btn-primary" type="submit" name="RegistrarServicio" value="REGISTRAR SERVICIO">
 </FORM>

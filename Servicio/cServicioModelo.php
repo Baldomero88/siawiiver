@@ -26,10 +26,8 @@ public function RegistrarServicio(){
 	$sDescripcionServicio = $this->_oServicio->getDescripcionServicio();
 	$sFormaPago = $this->_oServicio->getFormaPago();
 	$sFechaServicio = $this->_oServicio->getFechaServicio();
-	$sBajaServicio = $this->_oServicio->getBajaServicio();
-	$sEstadoServicio = $this->_oServicio->getEstadoServicio();
 
-	$sql ="INSERT INTO Servicio (Id_Empleado, Id_Cliente, TipoPaquete, PrecioPaquete, DescripcionPaquete, TipoServicio, PrecioServicio, DescripcionServicio, FormaPago, FechaServicio, BajaServicio, EstadoServicio) VALUES ('$nId_Empleado', '$nId_Cliente', '$sTipoPaquete', '$nPrecioPaquete', '$sDescripcionPaquete', '$sTipoServicio', '$nPrecioServicio', '$sDescripcionServicio', '$sFormaPago', '$sFechaServicio', '$sBajaServicio', '$sEstadoServicio')";
+	$sql ="INSERT INTO Servicio (Id_Empleado, Id_Cliente, TipoPaquete, PrecioPaquete, DescripcionPaquete, TipoServicio, PrecioServicio, DescripcionServicio, FormaPago, FechaServicio, EstadoServicio) VALUES ('$nId_Empleado', '$nId_Cliente', '$sTipoPaquete', '$nPrecioPaquete', '$sDescripcionPaquete', '$sTipoServicio', '$nPrecioServicio', '$sDescripcionServicio', '$sFormaPago', '$sFechaServicio', 'ACTIVO')";
 	$result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error($this->_dblink));
 	mysqli_close($this->_dblink);
 }
@@ -67,6 +65,52 @@ public function RegistrarServicio(){
 
 		return $aFields;
 	}
+        
+        public function obtenerProductoServicio(){
+		$sql ="select Id_Producto, NombreProducto, CantidadUnidad, PrecioUnidad from Producto where CantidadUnidad > 0";
+		$result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error($this->_dblink));
+		if ($result->num_rows === 0){exit; return false;}
+
+		$aFields = array();
+		while($row = $result->fetch_assoc()) {
+			$aFields[] = $row;
+		}
+
+		return $aFields;
+	}
+        
+        public function obtenerProductoServicioPorId($nIdProducto){
+		$sql ="select Id_Producto, NombreProducto, CantidadUnidad, PrecioUnidad
+                        from Producto 
+                        where CantidadUnidad > 0
+                        and Id_Producto = '$nIdProducto'";
+		$result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error($this->_dblink));
+		if ($result->num_rows === 0){exit; return false;}
+
+		$aFields = array();
+		while($row = $result->fetch_assoc()) {
+			$aFields[] = $row;
+		}
+
+		return $aFields;
+	}
+        
+        public function RegistrarDetalleServicio($nIdServicio, $aIdProducto, $aCantidadProducto) {
+            for($i = 0; $i < count($aIdProducto, COUNT_RECURSIVE); $i++){
+                
+                $oServicioProducto = $this->obtenerProductoServicioPorId($aIdProducto[$i]);
+                $nPrecioTotal = $oServicioProducto[0]['PrecioUnidad'] * $aCantidadProducto[$i];
+                
+                $sql = "INSERT INTO DetalleServicio (Id_Servicio, Id_Producto, Cantidad, PrecioTotal)
+                        VALUES ('$nIdServicio', '$aIdProducto[$i]', '$aCantidadProducto[$i]', '$nPrecioTotal')"; 
+                        $result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error($this->_dblink));
+                
+                $sql2 ="UPDATE Producto
+                       SET CantidadUnidad = CantidadUnidad - '$aCantidadProducto[$i]'
+                       WHERE Id_Producto = $aIdProducto[$i]";
+		$result2 = mysqli_query($this->_dblink, $sql2) or die('Error:'.mysqli_error($this->_dblink));
+            }
+        }
 
 	public function ModificarServicio(){
 		

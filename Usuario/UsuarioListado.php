@@ -1,5 +1,5 @@
 <?php
-    require_once('cUsuarioController.php');
+    require 'cUsuarioController.php';
     $oUsuarioController = new cUsuarioController;
 	$oEmpleadoUsuario = $oUsuarioController->ObtenerEmpleadoUsuario();
 
@@ -83,7 +83,6 @@
         // Condicion que se ejecuta si se presiona el boton de Eliminar
         elseif (isset($_POST['eliminarUsuario'])) {
             $nId_Usuario = $_POST['nId_Usuario'];
-
             $oEliminarUsuarioPorId = $oUsuarioController->eliminarUsuarioPorId($nId_Usuario);
         }
 

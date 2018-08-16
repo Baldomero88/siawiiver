@@ -50,9 +50,18 @@
 		}
 		?>
 	</select>
-	<br>	
-	<label>	Rol </label>
-	<input type="text" class="form-control" name="sRol" placeholder="ROL QUE DESEMPEÑA">
+	<br>
+        <!-- ROLES:
+            ADMINISTRADOR
+            COBRANZA
+            TECNICO
+        -->
+        <label for="exampleFormControlSelect1">Rol</label>
+        <select class="form-control" id="exampleFormControlSelect1" name="sRol">
+            <option value="ADMINISTRADOR">ADMINISTRADOR</option>
+            <option value="COBRANZA">COBRANZA</option>
+            <option value="TECNICO" selected>TECNICO</option>
+        </select>
 
 	<br>	
 	<label>	Nombre del Usuario</label>

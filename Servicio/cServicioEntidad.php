@@ -12,9 +12,7 @@ protected $_sTipoServicio = null;
 protected $_nPrecioServicio = null;  
 protected $_sDescripcionServicio = null;  
 protected $_sFormaPago = null;  
-protected $_sFechaServicio = null;  
-protected $_sBajaServicio = null;  
-protected $_sEstadoServicio = null;  
+protected $_sFechaServicio = null;   
 
 public function setId_Servicio($nId_Servicio){
 
