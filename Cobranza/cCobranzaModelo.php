@@ -75,7 +75,7 @@ class cCobranzaModelo {
                 WHERE EstadoPago='VENCIDO'
                 AND CO.Id_Servicio = SE.Id_Servicio
                 AND SE.Id_Cliente = CL.Id_Cliente
-                ORDER BY NombreCliente ASC";
+                GROUP BY NombreCliente ASC";
         $result = mysqli_query($this->_dblink, $sql) or die('Error:' . mysqli_error($this->_dblink));
         if ($result->num_rows === 0) {
             exit;

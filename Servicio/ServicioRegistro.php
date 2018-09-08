@@ -37,12 +37,14 @@ $oServicioEntidad->setFechaServicio($sFechaServicio);
 $oServicioModelo = New cServicioModelo($dbLink, $oServicioEntidad);
 if (isset($_POST['RegistrarServicio'])) {
     $oServicioModelo->RegistrarServicio();
-    header("Location: ProductoServicio.php");
+    header("Location: ServicioListado.php");
     die();
 }
 elseif(isset($_POST['modificarServicio'])) {
     $nId_Servicio = $_POST['Id_Servicio'];
     $oServicioEntidad->setId_Servicio($nId_Servicio);
     $oServicioModelo->ModificarServicio();
+    header("Location: ServicioListado.php");
+    die();
 }
 ?>

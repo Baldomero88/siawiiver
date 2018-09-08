@@ -1,3 +1,5 @@
+
+
 <?php
 session_start();
 if ($_SESSION['rol'] == 'ADMINISTRADOR' || $_SESSION['rol'] == 'COBRANZA' || $_SESSION['rol'] == 'TECNICO') {
@@ -27,25 +29,28 @@ if ($_SESSION['rol'] == 'ADMINISTRADOR' || $_SESSION['rol'] == 'COBRANZA' || $_S
 <body>
 <div class="container-fluid">
 
-     <ul class="nav nav-pills nav-justified">
-        <a class="nav-item nav-link" href="../index.php">INICIO</a></li>
-        <a class="nav-item nav-link" href="Cliente.php">REGISTRAR CLIENTE</a></li>
-        <a class="nav-item nav-link active" href="../Cliente/ClienteListado.php ">CLIENTES</a></li>
-        <a class="nav-item nav-link" href="../Empleado/EmpleadoListado.php">EMPLEADOS</a></li>
-        <a class="nav-item nav-link" href="../Producto/ProductoListado.php">PRODUCTOS</a></li>
-        <a class="nav-item nav-link" href="../Provedor/ProvedorListado.php">PROVEDORES</a></li>
-        <a class="nav-item nav-link" href="../PuntoAcceso/PuntoAccesoListado.php">PUNTOS DE ACCESO</a></li>
-        <a class="nav-item nav-link" href="../Usuario/UsuarioListado.php">USUARIOS</a></li>
-        <a class="nav-item nav-link" href="../Servicio/servicioListado.php">SERVICIOS</a></li>
-        <a  class="nav-item nav-link" href="../Cobranza/CobranzaListado.php">COBRANZA</a> </li>
-        
-        <br>    <br>    
+     <ul class="nav nav-tabs nav-justified">
+        <li><a class="nav-item nav-link" href="../index.php">INICIO</a></li>
+        <li><a class="nav-item nav-link" href="Cliente.php">REGISTRAR CLIENTE</a></li>
+        <li><a class="nav-item nav-link active" href="../Cliente/ClienteListado.php ">CLIENTES</a></li>
+        <li><a class="nav-item nav-link" href="../Empleado/EmpleadoListado.php">EMPLEADOS</a></li>
+        <li><a class="nav-item nav-link" href="../Producto/ProductoListado.php">PRODUCTOS</a></li>
+        <li><a class="nav-item nav-link" href="../Provedor/ProvedorListado.php">PROVEDORES</a></li>
+        <li><a class="nav-item nav-link" href="../PuntoAcceso/PuntoAccesoListado.php">PUNTOS DE ACCESO</a></li>
+        <li><a class="nav-item nav-link" href="../Usuario/UsuarioListado.php">USUARIOS</a></li>
+        <li><a class="nav-item nav-link" href="../Servicio/servicioListado.php">SERVICIOS</a></li>
+        <li><a class="nav-item nav-link" href="../Cobranza/CobranzaListado.php">COBRANZA</a> </li>
+        <li><a class="nav-item nav-link" href="../Usuario/cerrarSesion.php">CERRAR SESION</a> </li>  
         </ul>
-    <div class="alert alert-primary" role="alert">
-        <?php echo 'USUARIO: '.$_SESSION['usuario'].'<br> ROL: '.$_SESSION['rol'];?>    
-    </div>
-        <br>    <br>    
-        <h3> <P> <EM>WIIVER Ingenieria Aplicada en Redes CLIENTES </EM></P></h3>
+        <br>    <br>
+
+
+  <div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">¡Bienvenido!</h4>
+   <?php echo 'USUARIO: '.$_SESSION['usuario'].'<br> ROL: '.$_SESSION['rol'];?>
+  <hr>
+  <p class="mb-0"></p>
+</div>
     <?php
         // Condicion que se ejecuta si se presiona el boton de Modificar
         if (isset($_POST['modificarCliente'])) {
@@ -56,7 +61,11 @@ if ($_SESSION['rol'] == 'ADMINISTRADOR' || $_SESSION['rol'] == 'COBRANZA' || $_S
             echo '<form action="ClienteRegistro.php" method="post">';
 
             echo '<div class="form-group">';
-            echo '<div class="float col-xs-12 col-sm-6">';
+            echo '<div class="container col-md-6">';
+
+           //titulo del formulario
+            echo '<h5>';
+            echo '<label>Modificar Cliente</label>';
             echo '<h5>';
             echo '<label>Nombre del Punto de Acceso</label>';
             echo '<br>';
@@ -114,7 +123,7 @@ if ($_SESSION['rol'] == 'ADMINISTRADOR' || $_SESSION['rol'] == 'COBRANZA' || $_S
            <div class="table-bordered table-responsive">
             <table class="table">
 
-                <thead class="thead-light">
+                <thead class="thead-dark">
                     <tr>
                     <th scope="col">PUNTO DE ACCESO</th>
                     <th scope="col">NOMBRE DEL CLIENTE</th>
@@ -159,6 +168,20 @@ if ($_SESSION['rol'] == 'ADMINISTRADOR' || $_SESSION['rol'] == 'COBRANZA' || $_S
             echo '</tbody></table></div>';
         }
     ?>
+<br> <br>   <br>    <br>
+
+
+<div class="p-3 mb-2 bg-info text-white">.bg-info
+<div class="col-12">
+
+    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.    </p>
+    </div>  
+</div>
 </body>
 </html>
 <?php

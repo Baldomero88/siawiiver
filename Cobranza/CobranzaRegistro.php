@@ -1,3 +1,5 @@
+
+
 <?php 
 
 require_once('cCobranzaEntidad.php');
@@ -27,6 +29,18 @@ $oCobranzaEntidad->setOtrosCargos($nOtrosCargos);
 $oCobranzaEntidad->setEstadoPago($sEstadoPago);
 
 $oCobranzaModelo = New cCobranzaModelo($dbLink, $oCobranzaEntidad);
-$oCobranzaModelo->RegistrarCobranza();
+if (isset($_POST['RegistrarCobranza'])) {
+    $oCobranzaModelo->RegistrarCobranza();
+    header("Location: CobranzaListado.php");
+    die();
+}
+elseif(isset($_POST['modificarCobranza'])) {
+    $nId_Cobranza = $_POST['Id_Cobranza'];
+    $oCobranzaEntidad->setId_Cobranza($nId_Cobranza);
+    $oCobranzaModelo->ModificarCobranza();
+    header("Location: CobranzaListado.php");
+    die();
+}
 
+}
 ?>

@@ -33,11 +33,16 @@ $oClienteModelo = New cClienteModelo($dbLink, $oClienteEntidad);
 
 if (isset($_POST['RegistrarCliente'])) {
     $oClienteModelo->RegistrarCliente();
+    header("Location: ClienteListado.php");
+    die();
 }
 elseif(isset($_POST['modificarCliente'])) {
     $nId_Cliente = $_POST['Id_Cliente'];
     $oClienteEntidad->setId_Cliente($nId_Cliente);
     $oClienteModelo->ModificarCliente();
+
+    header("Location: ClienteListado.php");
+    die();
 }
 
 }

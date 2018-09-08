@@ -1,4 +1,6 @@
 <?php 
+session_start();
+if ($_SESSION['rol'] == 'ADMINISTRADOR' || $_SESSION['rol'] == 'COBRANZA') {
 
 require_once('cEmpleadoEntidad.php');
 require_once('../Conexion/cConexion.php');
@@ -30,11 +32,16 @@ $oEmpleadoEntidad->setHonorario($nHonorario);
 $oEmpleadoModelo = New cEmpleadoModelo($dbLink, $oEmpleadoEntidad);
 if (isset($_POST['RegistrarEmpleado'])) {
     $oEmpleadoModelo->RegistrarEmpleado();
+    header("Location: EmpleadoListado.php");
+    die();
 }
 elseif(isset($_POST['modificarEmpleado'])) {
     $nId_Empleado = $_POST['Id_Empleado'];
     $oEmpleadoEntidad->setId_Empleado($nId_Empleado);
     $oEmpleadoModelo->ModificarEmpleado();
+    header("Location: EmpleadoListado.php");
+    die();
 }
- ?>
 
+}
+?>

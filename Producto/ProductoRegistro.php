@@ -1,4 +1,6 @@
 <?php 
+session_start();
+if ($_SESSION['rol'] == 'ADMINISTRADOR'|| $_SESSION['rol'] == 'TECNICO') {
 
 require_once('cProductoEntidad.php');
 require_once('../Conexion/cConexion.php');
@@ -32,5 +34,9 @@ $oProductoEntidad->setTerminado($nTerminado);
 
 $oProductoModelo = New cProductoModelo($dbLink, $oProductoEntidad);
 $oProductoModelo->RegistrarProducto();
+   
+    header("Location: ProductoListado.php");
+    die();
+}
 
 ?>

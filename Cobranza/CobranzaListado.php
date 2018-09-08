@@ -1,5 +1,9 @@
 
+
 <?php
+session_start();
+if ($_SESSION['rol'] == 'ADMINISTRADOR' || $_SESSION['rol'] == 'COBRANZA') {
+
 require_once('cCobranzaController.php');
 $oCobranzaController = new cCobranzaController;
 $oServicioCobranza = $oCobranzaController->ObtenerServicioCobranza();
@@ -24,21 +28,28 @@ $oServicioCobranza = $oCobranzaController->ObtenerServicioCobranza();
     <body>
         <div class="container-fluid">
 
-            <ul class="nav nav-pills nav-justified">
-                <a class="nav-item nav-link" href="../index.php">INICIO</a></li>
-                <a class="nav-item nav-link" href="Cobranza.php">REGISTRAR COBRANZA</a></li>
-                <a class="nav-item nav-link" href="../Cliente/ClienteListado.php ">CLIENTES</a></li>
-                <a class="nav-item nav-link" href="../Empleado/EmpleadoListado.php">EMPLEADOS</a></li>
-                <a class="nav-item nav-link active" href="../Producto/ProductoListado.php">PRODUCTOS</a></li>
-                <a class="nav-item nav-link" href="../Provedor/ProvedorListado.php">PROVEDORES</a></li>
-                <a class="nav-item nav-link" href="../PuntoAcceso/PuntoAccesoListado.php">PUNTOS DE ACCESO</a></li>
-                <a class="nav-item nav-link" href="../Usuario/UsuarioListado.php">USUARIOS</a></li>
-                <a class="nav-item nav-link" href="../Servicio/servicioListado.php">SERVICIOS</a></li>
-                <a  class="nav-item nav-link" href="Cobranza/CobranzaListado.php">COBRANZA</a> </li>
-                <br><br>    
-            </ul>
-            <br><br>    
-            <h3> <P> <EM>WIIVER Ingenieria Aplicada en Redes PAGOS</EM></P></h3>
+            <ul class="nav nav-tabs nav-justified">
+                <li><a class="nav-item nav-link" href="../index.php">INICIO</a></li>
+                <li><a class="nav-item nav-link" href="Cobranza.php">REGISTRAR COBRANZA</a></li>
+                <li><a class="nav-item nav-link" href="../Cliente/ClienteListado.php ">CLIENTES</a></li>
+                <li><a class="nav-item nav-link" href="../Empleado/EmpleadoListado.php">EMPLEADOS</a></li>
+                <li><a class="nav-item nav-link" href="../Producto/ProductoListado.php">PRODUCTOS</a></li>
+                <li><a class="nav-item nav-link" href="../Provedor/ProvedorListado.php">PROVEDORES</a></li>
+                <li><a class="nav-item nav-link" href="../PuntoAcceso/PuntoAccesoListado.php">PUNTOS DE ACCESO</a></li>
+                <li><a class="nav-item nav-link" href="../Usuario/UsuarioListado.php">USUARIOS</a></li>
+                <li><a class="nav-item nav-link" href="../Servicio/servicioListado.php">SERVICIOS</a></li>
+                <li><a class="nav-item nav-link active" href="CobranzaListado.php">COBRANZA</a> </li>
+                <li><a class="nav-item nav-link" href="../Usuario/cerrarSesion.php">CERRAR SESION</a> </li>
+                </ul>
+        <br>    <br>
+
+
+  <div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">¡Bienvenido!</h4>
+   <?php echo 'USUARIO: '.$_SESSION['usuario'].'<br> ROL: '.$_SESSION['rol'];?>
+  <hr>
+  <p class="mb-0"></p>
+</div>
             <?php
             
             // Condicion que se ejecuta si se presiona el boton de Modificar
@@ -52,6 +63,7 @@ $oServicioCobranza = $oCobranzaController->ObtenerServicioCobranza();
                 echo '<div class="form-group">';
                 echo'<div class="float col-xs-12 col-sm-6">';
                 echo'<h5>';
+                
                 echo '<label>Nombre del Servicio</label>';
                 echo'<br>';
                 echo '<select name="nId_Servicio" class="form-control" >';
@@ -115,7 +127,7 @@ $oServicioCobranza = $oCobranzaController->ObtenerServicioCobranza();
                 <!-- Se muestra la tabla de Cobranzas-->
                 <div class="table-bordered table-responsive">
                     <table class="table">
-                        <thead class="thead-light">
+                        <thead class="thead-dark">
                             <tr>
                                 <th scope="COL">Servicio(Cliente)</th>
                                 <th scope="COL">Mes de Pago</th>
@@ -176,9 +188,9 @@ $oServicioCobranza = $oCobranzaController->ObtenerServicioCobranza();
                                     <tr class="table-danger">
                                         <td>'.$oListadoPagosVencidos[$i]['NombreCliente'].'</td>
                                         <td>'.$oListadoPagosVencidos[$i]['NumeroVencidos'].'</td>
-                                        <td>$'.$oListadoPagosVencidos[$i]['TotalServicio'].'</td>
-                                        <td>$'.$oListadoPagosVencidos[$i]['TotalCargos'].'</td>
-                                        <td>$'.$nTotalPagosVencidos.'</td>
+                                        <td>'.$oListadoPagosVencidos[$i]['TotalServicio'].'</td>
+                                        <td>'.$oListadoPagosVencidos[$i]['TotalCargos'].'</td>
+                                        <td>'.$nTotalPagosVencidos.'</td>
                                     </tr>
                                 </table>
                             </div>';
@@ -188,3 +200,22 @@ $oServicioCobranza = $oCobranzaController->ObtenerServicioCobranza();
                     ?>
                     </body>
                     </html>
+<br> <br>   <br>    <br>
+
+
+<div class="p-3 mb-2 bg-info text-white">.bg-info
+<div class="col-12">
+
+    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.    </p>
+    </div>  
+</div>
+</body>
+</html>
+<?php
+}
+?>
