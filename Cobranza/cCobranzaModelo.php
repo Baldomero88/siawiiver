@@ -32,7 +32,7 @@ class cCobranzaModelo {
     }
 
     public function obtenerListadoCobranza() {
-        $sql = "SELECT NombreCliente, TipoPaquete, Id_Cobranza, MesPago, AnoPago, Servicio, OtrosCargos, EstadoPago
+        $sql = "SELECT NombreCliente, Id_Cobranza, MesPago, AnoPago, Servicio, OtrosCargos, EstadoPago
 		FROM Servicio AS SE, Cobranza AS CO, Cliente AS CL
 		WHERE SE.Id_Servicio = CO.Id_Servicio
                 AND  CL.Id_Cliente = SE.Id_Cliente";
@@ -51,7 +51,7 @@ class cCobranzaModelo {
     
     
     public function obtenerListadoCobranzaPorId($Id_Servicio) {
-        $sql = "SELECT NombreCliente, TipoPaquete, Id_Cobranza, MesPago, AnoPago, Servicio, OtrosCargos, EstadoPago
+        $sql = "SELECT NombreCliente, Id_Cobranza, MesPago, AnoPago, Servicio, OtrosCargos, EstadoPago
 		FROM Servicio AS SE, Cobranza AS CO, Cliente AS CL
 		WHERE CO.Id_Servicio = '$Id_Servicio'
                 AND SE.Id_Servicio = CO.Id_Servicio
@@ -92,10 +92,18 @@ class cCobranzaModelo {
         $nId_Cobranza = $this->_oCobranza->getId_Cobranza();
         $nId_Servicio = $this->_oCobranza->getId_Servicio();
         $sMesPago = $this->_oCobranza->getMesPago();
+        $nAnoPagoPago = $this->_oCobranza->getAnoPago();
+        $nServicio = $this->_oCobranza->getServicio();
+        $OtrosCargos = $this->_oCobranza->getOtrosCargos();
         $sEstadoPago = $this->_oCobranza->getEstadoPago();
 
         $sql = "UPDATE Cobranza
-                SET Id_Servicio = '$nId_Servicio', MesPago = '$sMesPago', EstadoPago = '$sEstadoPago'
+                SET Id_Servicio = '$nId_Servicio', 
+                    MesPago = '$sMesPago',
+                    AnoPago = '$AnoPago',
+                    Servicio = '$nServicio',
+                    OtrosCargos = '$OtrosCargos'
+                    EstadoPago = '$sEstadoPago'
                 WHERE Id_Cobranza = $nId_Cobranza";
 
         $result = mysqli_query($this->_dblink, $sql) or die('Error:' . mysqli_error($this->_dblink));

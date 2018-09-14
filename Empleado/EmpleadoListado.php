@@ -159,15 +159,10 @@ if ($_SESSION['rol'] == 'ADMINISTRADOR' || $_SESSION['rol'] == 'COBRANZA') {
 <br> <br>   <br>    <br>
 
 
-<div class="p-3 mb-2 bg-info text-white">.bg-info
+<div class="p-3 mb-2 bg-info text-white"><h4>¿Quiénes somos?</h4>
 <div class="col-12">
 
-    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.    </p>
+    <p><h5> WIIVER es una empresa 100% mexicana, creada con el objetivo de brindar servicios en el área de telecomunicaciones, brindar asesoría tecnológica y enlaces dedicados a empresas privadas de la zona centro del estado de Veracruz.   </h5></p>
     </div>  
 </div>
 

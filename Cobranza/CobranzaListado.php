@@ -56,35 +56,76 @@ $oServicioCobranza = $oCobranzaController->ObtenerServicioCobranza();
             if (isset($_POST['modificarCobranza'])) {
                 $nId_Cobranza = $_POST['nId_Cobranza'];
 
-                $oListadoCobranzaPorId = $oCobranzaController->obtenerListadoCobranzaPorId($nId_Cobranza);
+                $oListadoCobranzaPorId = $oCobranzaController->obtenerServicioCobranza($nId_Cobranza);
 
                 echo '<form action="CobranzaRegistro.php" method="post">';
+
+                
 
                 echo '<div class="form-group">';
                 echo'<div class="float col-xs-12 col-sm-6">';
                 echo'<h5>';
                 
-                echo '<label>Nombre del Servicio</label>';
+                echo '<input type="hidden" name="Id_Cobranza" value="'.$oListadoCobranzaPorId[0]['Id_Cobranza'].'"" >';
+
+                echo '<label>Nombre del Cliente</label>';
                 echo'<br>';
                 echo '<select name="nId_Servicio" class="form-control" >';
                 for ($i = 0; $i < count($oServicioCobranza); $i++) {
-                    echo '<option value=' . $oServicioCobranza[$i]['Id_Servicio'] . '>' . $oServicioCobranza[$i]['TipoPaquete'] . '</option>';
+                    echo '<option value=' . $oServicioCobranza[$i]['nId_Servicio'] . '>' . $oServicioCobranza[$i]['NombreCliente'] . '</option>';
                 }
 
                 echo'<br>';
                 echo '</select>';
-                echo '<input type="hidden" class="form-control" name="Id_Cobranza" value=' . $oListadoCobranzaPorId[0]['Id_Cobranza'] . ' >';
+                
 
 
                 echo'<br>';
-                echo '<label>Mes de Pago</label>';
-                echo '<input type="text" class="form-control" name="sNombreCobranza" value="' . $oListadoCobranzaPorId[0]['NombreCobranza'] . '" placeholder="MES DE PAGO">';
+
+                 echo'<label>Mes de pago</label>';
+                    echo '<select class="form-control" name="sMesPago">';
+                        echo'<option value="ENERO">ENERO</option>';
+                        echo'<option value="FEBRERO">FEBRERO</option>';
+                        echo'<option value="MARZO">MARZO</option>';
+                        echo'<option value="ABRIL">ABRIL</option>';
+                        echo'<option value="MAYO">MAYO</option>';
+                        echo'<option value="JUNIO">JUNIO</option>';
+                        echo'<option value="JULIO">JULIO</option>';
+                        echo'<option value="AGOSTO">AGOSTO</option>';
+                        echo'<option value="SEPTIEMBRE">SEPTIEMBRE</option>';
+                        echo'<option value="OCTUBRE">OCTUBRE</option>';
+                        echo'<option value="NOVIEMBRE">NOVIEMBRE</option>';
+                        echo'<option value="DICIEMBRE">DICIEMBRE</option>';
+                    echo'</select>';
 
                 echo'<br>';
-                echo '<label>Estado de Pago</label>';
-                echo '<input type="text" class="form-control" name="sEstadoPago" value="' . $oListadoCobranzaPorId[0]['EstadoPago'] . '" placeholder="ESTADO DE PAGO">';
+                echo '<label>Año</label>';
+                 echo '<select class="form-control" name="sAno">';
+                        echo'<option value="2017">2017</option>';
+                        echo'<option value="2018">2018</option>';
+                        echo'<option value="2019">2019</option>';
+                        echo'<option value="2020">2020</option>';
+                        echo'<option value="2021">2021</option>';
+                        echo'<option value="2022">2022</option>';
 
-                echo '<br>';
+                    echo'</select>';
+
+                 echo'<br>';
+                echo '<label>Servicio</label>';
+                echo '<input type="text" class="form-control" name="nServicio" value="' . $oListadoCobranzaPorId[0]['Servicio'] . '" placeholder="SERVICIO">';
+
+                 echo'<br>';
+                echo '<label>Otros cargos</label>';
+                echo '<input type="text" class="form-control" name="OtrosCargos" value="' . $oListadoCobranzaPorId[0]['OtrosCargos'] . '" placeholder="OTROS CARGOS">';
+
+
+                echo'<label>Estado de pago</label>';
+                    echo '<select class="form-control" name="sEstadoServicio">';
+                        echo'<option value="ACTIVO">ACTIVO</option>';
+                        echo'<option value="INACTIVO">INACTIVO</option>';
+                    echo'</select>';
+
+                echo'<br>';
                 echo '<input type="submit" class="btn btn-success" name="modificarCobranza" value="MODIFICAR Cobranza">';
                 echo '</form>';
             }

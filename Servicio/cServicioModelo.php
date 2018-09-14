@@ -26,8 +26,10 @@ public function RegistrarServicio(){
 	$sDescripcionServicio = $this->_oServicio->getDescripcionServicio();
 	$sFormaPago = $this->_oServicio->getFormaPago();
 	$sFechaServicio = $this->_oServicio->getFechaServicio();
+	$sBajaServicio = $this->_oServicio->getBajaServicio();
+	$sEstadoServicio = $this->_oServicio->getEstadoServicio();
 
-	$sql ="INSERT INTO Servicio (Id_Empleado, Id_Cliente, TipoPaquete, PrecioPaquete, DescripcionPaquete, TipoServicio, PrecioServicio, DescripcionServicio, FormaPago, FechaServicio, EstadoServicio) VALUES ('$nId_Empleado', '$nId_Cliente', '$sTipoPaquete', '$nPrecioPaquete', '$sDescripcionPaquete', '$sTipoServicio', '$nPrecioServicio', '$sDescripcionServicio', '$sFormaPago', '$sFechaServicio', 'ACTIVO')";
+	$sql ="INSERT INTO Servicio (Id_Empleado, Id_Cliente, TipoPaquete, PrecioPaquete, DescripcionPaquete, TipoServicio, PrecioServicio, DescripcionServicio, FormaPago, FechaServicio, BajaServicio, EstadoServicio) VALUES ('$nId_Empleado', '$nId_Cliente', '$sTipoPaquete', '$nPrecioPaquete', '$sDescripcionPaquete', '$sTipoServicio', '$nPrecioServicio', '$sDescripcionServicio', '$sFormaPago', '$sFechaServicio', '$sBajaServicio', '$sEstadoServicio')";
 	$result = mysqli_query($this->_dblink, $sql) or die('Error:'.mysqli_error($this->_dblink));
 	mysqli_close($this->_dblink);
 }

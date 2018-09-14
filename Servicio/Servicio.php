@@ -141,9 +141,12 @@ if ($_SESSION['rol'] == 'ADMINISTRADOR' || $_SESSION['rol'] == 'COBRANZA' || $_S
 	<input class="form-control" type="date" name="sBajaServicio" placeholder="BAJA DE SERVICIO">
 	
 	<br>	
-	<label>	Estado del Servicio</label>
-	<input class="form-control" type="text" name="sEstadoServicio" placeholder="ACTIVO o INACTIVO">
-	
+	<label>	Estado de servicio</label>
+        <select class="form-control" name="sEstadoServicio">
+            <option value="ACTIVO">ACTIVO</option>
+            <option value="INACTIVO">INACTIVO</option>
+        </select>
+        
 	<br>	
 	<input class="btn btn-primary" type="submit" name="RegistrarServicio" value="REGISTRAR SERVICIO">
 </h5>

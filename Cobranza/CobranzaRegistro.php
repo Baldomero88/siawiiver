@@ -42,5 +42,5 @@ elseif(isset($_POST['modificarCobranza'])) {
     die();
 }
 
-}
+
 ?>

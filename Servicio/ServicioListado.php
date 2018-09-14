@@ -138,8 +138,8 @@ if ($_SESSION['rol'] == 'ADMINISTRADOR' || $_SESSION['rol'] == 'COBRANZA' || $_S
                  echo '<br>';   
                     echo'<label>Estado del Servicio</label>';
                     echo '<select class="form-control" name="sEstadoServicio">';
-                        echo'<option value="Activo">ACTIVO</option>';
-                        echo'<option value="Inactivo">INACTIVO</option>';
+                        echo'<option value="ACTIVO">ACTIVO</option>';
+                        echo'<option value="INACTIVO">INACTIVO</option>';
                     echo'</select>';
                  
                  echo '<br>';
