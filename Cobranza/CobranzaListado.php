@@ -56,18 +56,16 @@ $oServicioCobranza = $oCobranzaController->ObtenerServicioCobranza();
             if (isset($_POST['modificarCobranza'])) {
                 $nId_Cobranza = $_POST['nId_Cobranza'];
 
-                $oListadoCobranzaPorId = $oCobranzaController->obtenerServicioCobranza($nId_Cobranza);
+                $oListadoCobranzaPorId = $oCobranzaController->obtenerListadoCobranzaPorId($nId_Cobranza);
 
                 echo '<form action="CobranzaRegistro.php" method="post">';
-
-                
-
                 echo '<div class="form-group">';
-                echo'<div class="float col-xs-12 col-sm-6">';
-                echo'<h5>';
-                
-                echo '<input type="hidden" name="Id_Cobranza" value="'.$oListadoCobranzaPorId[0]['Id_Cobranza'].'"" >';
+                 echo '<div class="container col-md-6">';
 
+           //titulo del formulario
+                echo '<h5>';
+                echo '<label>Modificar Cobranza</label>';
+                echo '<h5>';
                 echo '<label>Nombre del Cliente</label>';
                 echo'<br>';
                 echo '<select name="nId_Servicio" class="form-control" >';
@@ -77,11 +75,9 @@ $oServicioCobranza = $oCobranzaController->ObtenerServicioCobranza();
 
                 echo'<br>';
                 echo '</select>';
-                
-
+               echo '<input type="hidden" name="nId_Cobranza" value=' . $oListadoCobranza[$i]['Id_Cobranza'] . ' />';
 
                 echo'<br>';
-
                  echo'<label>Mes de pago</label>';
                     echo '<select class="form-control" name="sMesPago">';
                         echo'<option value="ENERO">ENERO</option>';
